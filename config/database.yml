@@ -1,0 +1,17 @@
+common: &common
+  adapter: postgresql
+  username: ENV["DB_USER"]
+  password: ENV["DB_PASS"]
+
+development:
+  <<: *common
+  database: bunny_reader_dev
+
+test:
+  <<: *common
+  database: bunny_reader_test
+
+production:
+  <<: *common
+  database: bunny_reader_pro
+
