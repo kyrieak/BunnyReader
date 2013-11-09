@@ -1,9 +1,19 @@
 BunnyReader::Application.routes.draw do
+  resources :feeds
+  root 'feeds#index'
+
+  get "/auth/:provider/callback" => "sessions#login_with_omni", as: "omni_login"
+  get "/email_login" => "sessions#login_with_email"
+  get "/guest_login" => "sessions#login_as_guest"
+
+  post "/email_account" => "sessions#create"
+  post "/logout" => "sessions#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+    # root 'application#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

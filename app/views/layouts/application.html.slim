@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title BunnyReader
+    meta[name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"]
+    link[rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"]
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    script[type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"]
+    script[type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"]
+    = javascript_include_tag "application", "data-turbolinks-track" => true   
+    = csrf_meta_tags
+    javascript:
+      if (window.location.hash == '#_=_') {
+        window.location.hash = ''; // for older browsers, leaves a # behind
+        history.pushState('', document.title, window.location.pathname); // nice and clean
+        e.preventDefault(); // no page reload
+      }
+
+  body
+    .container[style="background-color: rgba(255,255,255,0.25)"]
+      .nav.row[style=""]
+        .col-md-3
+          | a
+        .col-md-6[style=""]
+          #login_header[class="btn" data-toggle="collapse" data-target="#login_area"]
+            | Login
+
+          #login_area[class="collapse jumbotron"]
+            .container
+              .row
+                .col-md-6[id="login_left"]
+                  = render partial: "/layouts/login_with_account"
+                .col-md-6[id="login_right"]
+                  = render partial: "/layouts/create_account"
+                
+        .col-md-3
+          | b
+    .notice
+      = flash[:notice]
+    = yield

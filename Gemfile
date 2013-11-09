@@ -4,7 +4,18 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use pg as the database for Active Record
-gem 'pg'
+gem 'pg', '>=0.17.0'
+
+# - Omniauth ------------------------
+gem 'oauth', '>= 0.4.7'
+gem 'oauth2', '>= 0.8.1'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+# -----------------------------------
+
+gem 'nokogiri', '>=1.6.0'
 
 gem 'slim'
 

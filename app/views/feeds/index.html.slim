@@ -1,0 +1,6 @@
+.panel_left
+  - @feeds.each do |f, cont|
+    img.feed_logo id="feed_logo_#{f.id}" src="#{asset_path(f.logo)}" data-fid="#{f.id}" placeholder="#{f.name}"
+.container#left
+
+.container#right
