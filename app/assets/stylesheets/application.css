@@ -30,3 +30,51 @@ a:hover {
 hr {
   border-color: #CCCCCC;
 }
+
+.link_like {
+  color: #428bca
+}
+
+.link_like:hover {
+  text-decoration: underline;
+}
+
+.remove_left_pad {
+  padding-left: 0px;
+}
+
+.remove_right_pad {
+  padding-right: 0px;
+}
+
+.smaller {
+  font-size: 0.75em;
+}
+
+.glyphicon {
+  color: #AAAAAA;
+  font-size: 1.2em;
+}
+
+.glyphicon:hover {
+  color: #428BCA;
+}
+
+.icon_bar_outer {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  height: 0.75em;
+}
+.icon-bar {
+  display: block;
+  background-color: #AAAAAA;
+  width: 22px;
+  height: 2px;
+  margin: 2px;
+  border-radius: 1px;
+}
+
+.icon_bar_outer:hover .icon-bar {
+  background-color: #428BCA;
+}

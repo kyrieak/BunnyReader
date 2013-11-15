@@ -1,0 +1,22 @@
+#login_header[class="btn menu"]
+  | Login
+
+#login_area[class="jumbotron" style="display: none"]
+  .container
+    .row
+      .col-md-6[id="login_left"]
+        = render partial: "/layouts/login_with_account"
+      .col-md-6[id="email_section"]
+        = render partial: "/layouts/email_account"
+    .row
+      .col-md-2[align="left"]
+        a.slide.hidden[id="back"]
+          span[class="glyphicon glyphicon-circle-arrow-left"]
+      .col-md-2[align="center"]
+        a[class="menu glyphicon icon_bar_outer"]
+          span[class="icon-bar"]
+          span[class="icon-bar"]
+          span[class="icon-bar"]
+      .col-md-2[align="right"]
+        a.slide[id="next"]
+          span[class="glyphicon glyphicon-circle-arrow-right"]

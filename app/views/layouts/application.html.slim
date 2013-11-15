@@ -18,21 +18,12 @@ html
 
   body
     .container[style="background-color: rgba(255,255,255,0.25)"]
-      .nav.row[style=""]
+      .nav.row
         .col-md-3
           | a
-        .col-md-6[style=""]
-          #login_header[class="btn" data-toggle="collapse" data-target="#login_area"]
-            | Login
+        .col-md-6[id="menu_content"]
+          = render partial: "layouts/menu_content"
 
-          #login_area[class="collapse jumbotron"]
-            .container
-              .row
-                .col-md-6[id="login_left"]
-                  = render partial: "/layouts/login_with_account"
-                .col-md-6[id="login_right"]
-                  = render partial: "/layouts/create_account"
-                
         .col-md-3
           | b
     .notice

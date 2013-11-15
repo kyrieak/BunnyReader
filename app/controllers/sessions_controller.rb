@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
 
   def login_with_email
     @user = find_user_by_email(params[:email], params[:password])
-
     if @user.nil?
       flash[:notice] => "Login Failed. Create account?"
     else
@@ -26,7 +25,6 @@ class SessionsController < ApplicationController
 
   def login_as_guest
     session[:current_user] = "Guest"
-
     redirect_to root_url, :notice => "Hi there :)"
   end
 
@@ -41,11 +39,16 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:current_user] = nil
-    
     redirect_to root_url, :notice => "Logged out :)"
   end
 
   private
+
+  def session_params
+    params.require(:user).permit(:email, :password, :password_confirm)
+  end
+    
+  end
 
   # -- find user -------------------------------------------------
 

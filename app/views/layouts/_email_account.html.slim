@@ -1,0 +1,38 @@
+h5.lead.link_like
+  | Login
+
+.smaller[id="email_login"]
+  = form_tag("/email_login", method: "get") do
+    .row[style="margin-bottom: 0.3em"]
+      = label_tag(:email, "Email: ", class: 'col-md-4 remove_left_pad')
+      = text_field_tag(:email, "", class: 'col-md-8')
+    .row[style="margin-bottom: 0.3em"]
+      = label_tag(:password, "Password: ", class: 'col-md-4 remove_left_pad')
+      = password_field_tag(:password, "", class: 'col-md-8')
+    .row
+      .col-md-4
+      = submit_tag("Login", class: 'col-md-8')
+
+hr
+
+h5.lead.link_like
+  | or Create an Account
+
+.smaller[id="email_account" style="display: none;"]
+  = form_tag("/email_account", method: "post") do
+    .row[style="margin-bottom: 0.3em"]
+      = label_tag(:email, "Email: ", class: 'col-md-5 remove_left_pad')
+      = text_field_tag(:email, "", class: 'col-md-7')
+    .row[style="margin-bottom: 0.3em"]
+      = label_tag(:password, "Password: ", class: 'col-md-5 remove_left_pad')
+      = password_field_tag(:password, "", class: 'col-md-7')
+    .row[style="margin-bottom: 0.3em"]
+      = label_tag(:password_confirm, "Confirm Password: ", class: 'col-md-5 remove_left_pad')
+      = password_field_tag(:password, "", class: 'col-md-7')
+    .row
+      = submit_tag("Create Account", class: 'col-md-12')
+
+  br
+  br
+a[id="slide_right"]
+  | Back

@@ -4,23 +4,31 @@
 
 $(document).ready ->
 
-  $("#slide_left").click ->
-    elm = $.find('#login_left.col-md-6')[0]
-    jumbo = $.find('.jumbotron')[0]
-    r_elm = $.find('#login_right.col-md-6.right')[0]
-    h_distance = $(jumbo).outerWidth(true) * -1.1
-
-    console.log(h_distance)
-    $(elm).animate(
-      'margin-left': h_distance
-    )
-
-  $("#slide_right").click ->
+  $(".slide").click ->
     elm = $.find('#login_left.col-md-6')[0]
 
-    $(elm).animate('margin-left': 0)
+    if ($(elm).css('margin-left') == "0px")
+      jumbo = $.find('.jumbotron')[0]
+      h_distance = $(jumbo).outerWidth(true) * -1.1
+      $(elm).animate(
+        'margin-left': h_distance
+      )
+      console.log("im here if")
+    else
+      console.log($(elm).css('margin-left'))
+      $(elm).animate('margin-left': 0)
+      console.log("im here else")
 
-  $("#login_area").slideToggle('slow', () ->
-    console.log("here in slidetoggle")
-    $("#login_area").addClass("in")
-  )
+
+    $("#back").toggleClass('hidden')
+    $("#next").toggleClass('hidden')
+    
+
+  $("#login_area").slideToggle('slow')
+  
+  $("#email_section h5").click ->
+    $("#email_login").slideToggle('fast')
+    $("#email_account").slideToggle('fast')
+
+  $(".menu").click ->
+    $("#login_area").slideToggle('slow')
