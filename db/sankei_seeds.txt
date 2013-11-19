@@ -1,0 +1,91 @@
+'MSN産経ニュース - 注目'
+'http://sankei.jp.msn.com/rss/news/points.xml'
+
+
+'MSN産経ニュース - 速報'
+'http://sankei.jp.msn.com/rss/news/flash.xml'
+
+
+'MSN産経ニュース - 事件'
+'http://sankei.jp.msn.com/rss/news/affairs.xml'
+
+
+'MSN産経ニュース - 政治'
+'http://sankei.jp.msn.com/rss/news/politics.xml'
+
+
+'MSN産経ニュース - 経済・IT'
+'http://sankei.jp.msn.com/rss/news/economy.xml'
+
+
+'MSN産経ニュース - 国際'
+'http://sankei.jp.msn.com/rss/news/world.xml'
+
+
+'MSN産経ニュース - スポーツ'
+'http://sankei.jp.msn.com/rss/news/sports.xml'
+
+
+'MSN産経ニュース - エンタメ'
+'http://sankei.jp.msn.com/rss/news/entertainments.xml'
+
+
+'MSN産経ニュース - ライフ'
+'http://sankei.jp.msn.com/rss/news/life.xml'
+
+
+'MSN産経ニュース - 科学'
+'http://sankei.jp.msn.com/rss/news/science.xml'
+
+
+'MSN産経ニュース - 地方'
+'http://sankei.jp.msn.com/rss/news/region.xml'
+
+
+
+
+
+
+'MSN Saneki News - Chumoku'
+'http://sankei.jp.msn.com/rss/news/points.xml'
+
+
+'MSN Saneki News - Sokuhou'
+'http://sankei.jp.msn.com/rss/news/flash.xml'
+
+
+'MSN Saneki News - Jiken'
+'http://sankei.jp.msn.com/rss/news/affairs.xml'
+
+
+'MSN Saneki News - Seiji'
+'http://sankei.jp.msn.com/rss/news/politics.xml'
+
+
+'MSN Saneki News - Keizai IT'
+'http://sankei.jp.msn.com/rss/news/economy.xml'
+
+
+'MSN Saneki News - Kokusai'
+'http://sankei.jp.msn.com/rss/news/world.xml'
+
+
+'MSN Saneki News - Sports'
+'http://sankei.jp.msn.com/rss/news/sports.xml'
+
+
+'MSN Sankei News - Entame'
+'http://sankei.jp.msn.com/rss/news/entertainments.xml'
+
+
+'MSN Sankei News - Life'
+'http://sankei.jp.msn.com/rss/news/life.xml'
+
+
+'MSN Sankei News - Kagaku'
+'http://sankei.jp.msn.com/rss/news/science.xml'
+
+
+'MSN Sankei News - Chihou'
+'http://sankei.jp.msn.com/rss/news/region.xml'
+

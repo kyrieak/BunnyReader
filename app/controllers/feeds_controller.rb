@@ -4,10 +4,9 @@ class FeedsController < ApplicationController
     @feeds = {}
     Feed.all.each do |f|
       begin
-        # content = parse_feed(f.url,
-        #                      f.item_node_name,
-        #                      f.tags)
-        content = []
+        content = parse_feed(f.url,
+                             f.item_node_name,
+                             f.tags)
       rescue
         puts "here in rescue"
         content = []
