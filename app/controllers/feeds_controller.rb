@@ -2,7 +2,9 @@ class FeedsController < ApplicationController
 
   def index
     @feeds = {}
-    Feed.all.each do |f|
+    @language = session[:current_lang]
+    feed_list = Feed.all.where(language_id: @language)
+    feed_list.each do |f|
       begin
         content = parse_feed(f.url,
                              f.item_node_name,

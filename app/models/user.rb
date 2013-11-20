@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_many :auth_options
+
   def self.find_by_auth(auth)
     provider = auth["provider"]
     uid = auth["uid"]

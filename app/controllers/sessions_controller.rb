@@ -6,25 +6,30 @@ class SessionsController < ApplicationController
 
   def login_with_omni
     auth = request.env["omniauth.auth"]
+    puts " -- login ----------------------------------------------------"
+    puts auth.inspect
+    puts " -- login ----------------------------------------------------"
     @user = find_user_by_omni(auth)
     @user = create_user_from_omni(auth) if @user.nil?
     session[:current_user] = @user.id
-
+    session[:current_lang] = 2
     redirect_to root_url, :notice => "Hi #{@user.name} :)"
   end
 
   def login_with_email
     @user = find_user_by_email(params[:email], params[:password])
     if @user.nil?
-      flash[:notice] => "Login Failed. Create account?"
+      flash[:notice] = "Login Failed. Create account?"
     else
       session[:current_user] = @user.id
+      session[:current_lang] = 2
       redirect_to root_url, :notice => "Hi #{@user.name} :)"
     end
   end
 
   def login_as_guest
     session[:current_user] = "Guest"
+    session[:current_lang] = 2
     redirect_to root_url, :notice => "Hi there :)"
   end
 
@@ -45,17 +50,14 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:email, :password, :password_confirm)
-  end
-    
+    params.require(:user).permit(:name, :email, auth_options: [:provider, :uid, :name])
   end
 
   # -- find user -------------------------------------------------
 
   def find_user_by_omni(auth)
-    User.where(provider: auth["provider"],
-               uid: auth["uid"],
-               name: auth["info"]["first_name"]).first
+    auth_opt = AuthOption.where(provider: auth["provider"], uid: auth["uid"]).first
+    (auth_opt.nil?) ? nil : auth_opt.user
   end
 
   def find_user_by_email(email, pass)
@@ -65,9 +67,13 @@ class SessionsController < ApplicationController
   # -- create account --------------------------------------------
 
   def create_user_from_omni(auth)
-    User.create(provider: auth["provider"],
-                uid: auth["uid"],
-                name: auth["info"]["first_name"])
+    first_name = auth["info"]["first_name"]
+    user = User.new(name: first_name)
+    if user.save
+      auth_opt = user.auth_options.build(provider: auth["provider"], uid: auth["uid"], name: first_name)
+      auth_opt.save
+    end
+    return user
   end
 
   def create_user_from_email(email, pass, pass_confirm)

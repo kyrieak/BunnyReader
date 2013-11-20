@@ -31,22 +31,6 @@ hr {
   border-color: #CCCCCC;
 }
 
-.japanese {
-  letter-spacing: 0.07em;
-  font-family: "ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN";
-}
-
-.japanese h3 {
-  color: #046399;
-  line-height: 1.5em;
-}
-
-.japanese p {
-  font-size: 140%;
-  color: #444444;
-  line-height: 1.75em;
-}
-
 .link_like {
   color: #428bca
 }
