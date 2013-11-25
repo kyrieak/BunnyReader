@@ -24,11 +24,11 @@ $(document).ready ->
     $("#next").toggleClass('hidden')
     
 
-  $("#login_area").slideToggle('slow')
+  $("#menu_area").slideToggle('slow')
   
   $("#email_section h5").click ->
     $("#email_login").slideToggle('fast')
     $("#email_account").slideToggle('fast')
 
   $(".menu").click ->
-    $("#login_area").slideToggle('slow')
+    $("#menu_area").slideToggle('slow')

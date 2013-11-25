@@ -1,23 +1,12 @@
 .container#left
   #area[style="background-color: #f8f8f8"]
-    - @feeds.each do |feed, items_list|
-      h2
-        = feed.name
+    - @items.each do |i|
+      - feed = i[:feed]
+      - icon = 'icon/' + i[:logo].to_s
+      - item = i[:item]
 
-      - items_list.each do |item|
+      div
         = render :partial => "title", :locals => { :link_url => item["Link"], :title_arr => item["Title"] }
-        = render :partial => "author", :locals => { :author_arr => item["Author"] }
+        = render :partial => "author", :locals => { :icon => icon, :author_arr => item["Author"] }
         = render :partial => "desc", :locals => { :desc_arr => item["Description"], :image_arr => item["Image"] }
         hr
-
-.container#right
-  #area
-    / - @feeds.each do |feed, items_list|
-    /   h3
-    /     = feed.name
-
-    /   - items_list.each do |item|
-    /     = render :partial => "title", :locals => { :link_url => item["Link"], :title_arr => item["Title"] }
-    /     = render :partial => "author", :locals => { :author_arr => item["Author"] }
-    /     = render :partial => "desc", :locals => { :desc_arr => item["Description"], :image_arr => item["Image"] }
-    /     hr

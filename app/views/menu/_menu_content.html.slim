@@ -3,14 +3,17 @@
 
 #menu_area[class="jumbotron" style="display: none"]
   .container
+    - @logged_in = false
     - if logged_in? 
-      .row[style='display:none']
-        .col-md-6
-          = user_feeds 
-        .col-md-6
-          = user_settings 
-        .col-md-6
-          = user_account 
+      .row
+        = 'hi'
+      / .row[style='display:none']
+      /   .col-md-6
+      /     = user_feeds 
+      /   .col-md-6
+      /     = user_settings 
+      /   .col-md-6
+      /     = user_account 
     - else
       .row
         .col-md-6[id="login_left"]

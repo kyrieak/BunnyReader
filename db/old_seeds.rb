@@ -1,68 +1,40 @@
 
 # ## Slate ##############################################################
 
-# f = Feed.create({ :url => "http://feeds.slate.com/slate",
-#                   :name => "Slate",
-#                   :item_node_name => "item" })
+f = Feed.create(name: 'Slate',
+                url: 'http://feeds.slate.com/slate',
+                logo: 'logo_slate.png')
 
-# t = f.tags.build({ :name => "Title",
-#                    :node_name => "title",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
-# t.save
+t = f.tags.build(Tag.default_title_args)
+t.save
 
-# t = f.tags.build({ :name => "Link",
-#                    :node_name => "link",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
+t = f.tags.build(Tag.default_link_args)
+t.save
 
-# t.save
+t = f.tags.build(Tag.default_desc_args)
+t.save
 
-# t = f.tags.build({ :name => "Author",
-#                    :node_name => "dc:creator",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
+t = f.tags.build(Tag.default_image_args('media:thumbnail'))
+t.save
 
-# t.save
+t = f.tags.build(Tag.default_author_args('dc:creator'))
+t.save
 
-# t = f.tags.build({ :name => "Description",
-#                    :node_name => "description",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
-
-# t.save
-
-# t = f.tags.build({ :name => "Image",
-#                    :node_name => "media:thumbnail",
-#                    :att_name => "url",
-#                    :get_node_att => true,
-#                    :get_node_cont => false })
-
-# t.save
+f.save
 
 # ## NPR ################################################################
 
-# f = Feed.create({ :url => "http://www.npr.org/rss/rss.php?id=1007",
-#                   :name => "NPR",
-#                   :item_node_name => "item" })
+# f = Feed.create(name: 'NPR',
+#                 url: 'http://www.npr.org/rss/rss.php?id=1001',
+#                 logo: 'logo_npr.png')
 
-# t = f.tags.build({ :name => "Title",
-#                    :node_name => "title",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
-
+# t = f.tags.build(Tag.default_title_args)
 # t.save
 
-# t = f.tags.build({ :name => "Link",
-#                    :node_name => "link",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
-
+# t = f.tags.build(Tag.default_link_args)
 # t.save
 
-# t = f.tags.build({ :name => "Description",
-#                    :node_name => "description",
-#                    :get_node_att => false,
-#                    :get_node_cont => true })
-
+# t = f.tags.build(Tag.default_desc_args)
 # t.save
+
+# f.save

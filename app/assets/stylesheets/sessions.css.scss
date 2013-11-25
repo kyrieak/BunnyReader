@@ -7,7 +7,7 @@
   margin: 0px auto
 }
 
-#login_area {
+#menu_area {
   background: white;
   padding: 0;
   width: 100%;
@@ -28,19 +28,19 @@ a#login_goog {
   margin: 10px 0;
   height: 40px;
   width: 107px;
-  background: url("logo_google.png");
+  background: url("/icon/google.png");
 }
 
 a#login_fb {
   height: 60px;
   width: 60px;
-  background: url("logo_fb.png");
+  background: url("/icon/fb.png");
 }
 
 a#login_twit {
   height: 60px;
   width: 73.5px;
-  background: url("logo_twit.png");
+  background: url("/icon/twit.png");
 }
 
 a#login_goog,
@@ -51,29 +51,29 @@ a#login_twit {
   background-repeat: no-repeat;
 }
 
-#login_area .container {
+#menu_area .container {
   width: 200%;
   padding: 0;
   max-width: none;
 }
 
-#login_area .row {
+#menu_area .row {
   margin: 0;
 }
 
-#login_area #login_left {
+#menu_area #login_left {
   width: 50%;
   padding: 3%;
   margin: 0;
 }
 
-#login_area #email_section {
+#menu_area #email_section {
   width: 50%;
   padding: 3%;
   margin: 0;
   min-height: 100%
 }
 
-#login_area p {
+#menu_area p {
   font-size: 0.75em;
 }

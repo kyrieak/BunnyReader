@@ -1,17 +1,3 @@
-# class CreateTags < ActiveRecord::Migration
-#   def change
-#     create_table :tags do |t|
-#       t.integer :feed_id
-#       t.string :name
-#       t.string :node_name
-#       t.string :att_name
-#       t.boolean :get_node_att
-#       t.boolean :get_node_cont
-#       t.timestamps
-#     end
-#   end
-# end
-
 class Tag < ActiveRecord::Base
 
   belongs_to :feed
@@ -23,5 +9,42 @@ class Tag < ActiveRecord::Base
   def get_node_cont?
     self.get_node_cont
   end
+
+  def self.default_title_args(node_name="title")
+    return { name: 'Title',
+             node_name: node_name,
+             get_node_att: false,
+             get_node_cont: true }
+  end
+
+  def self.default_link_args(node_name='link')
+    return { name: 'Link',
+             node_name: node_name,
+             get_node_att: false,
+             get_node_cont: true }
+  end
+
+  def self.default_desc_args(node_name='description')
+    return { name: 'Description',
+             node_name: node_name,
+             get_node_att: false,
+             get_node_cont: true }
+  end
+
+  def self.default_image_args(node_name, att_name='url')
+    return { name: 'Image',
+             node_name: node_name,
+             att_name: att_name,
+             get_node_att: true,
+             get_node_cont: false }
+  end
+
+  def self.default_author_args(node_name)
+    return { name: 'Author',
+             node_name: node_name,
+             get_node_att: false,
+             get_node_cont: true }
+  end
+
 
 end
