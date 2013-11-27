@@ -14,7 +14,6 @@
 
 
 body {
-  background: url("glassy-orange-pattern.jpg") repeat fixed;
   width: 100%;
   overflow-y: scroll;
 }
@@ -77,4 +76,8 @@ hr {
 
 .icon_bar_outer:hover .icon-bar {
   background-color: #428BCA;
+}
+
+.hide {
+  visibility: hidden;
 }

@@ -40,6 +40,8 @@ class FeedsController < ApplicationController
 
   def feed_params
     params.require(:feed).permit(:id, :name, :url, :logo, :language_id, tags_attributes: [:name, :node_name])
+    params.require(:user).permit(:name, :email,
+                                  defaults: [:language_id, bg:[:name]])
   end  
 
 end

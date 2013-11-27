@@ -5,6 +5,7 @@
 $(document).ready ->
 
   $(".slide").click ->
+    event.preventDefault()
     elm = $.find('#login_left.col-md-6')[0]
 
     if ($(elm).css('margin-left') == "0px")
@@ -19,10 +20,8 @@ $(document).ready ->
       $(elm).animate('margin-left': 0)
       console.log("im here else")
 
-
-    $("#back").toggleClass('hidden')
-    $("#next").toggleClass('hidden')
-    
+    $("#back").toggleClass('hide')
+    $("#next").toggleClass('hide')
 
   $("#menu_area").slideToggle('slow')
   
@@ -32,3 +31,7 @@ $(document).ready ->
 
   $(".menu").click ->
     $("#menu_area").slideToggle('slow')
+
+  $.get('/get_defaults.js').done((data) ->
+    console.log(data)
+  )
