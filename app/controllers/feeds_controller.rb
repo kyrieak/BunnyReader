@@ -6,6 +6,7 @@ class FeedsController < ApplicationController
     @items = []
     @language = session[:current_lang]
     @language = 1
+    @bg_url = Bg.find(rand(1..9)).name
     feed_list = Feed.all.where(language_id: @language)
     puts feed_list
     feed_list.each do |f|
