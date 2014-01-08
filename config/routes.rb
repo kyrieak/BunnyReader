@@ -1,7 +1,8 @@
 BunnyReader::Application.routes.draw do
   get "users/show"
   resources :feeds
-  root 'feeds#index'
+  # root 'feeds#index'
+  get "/" => "application#home"
 
   get "/auth/:provider/callback" => "sessions#login_with_omni", as: "omni_login"
   get "/email_login" => "sessions#login_with_email"

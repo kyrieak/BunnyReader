@@ -35,6 +35,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    curb (0.8.5)
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.8.8)
@@ -147,6 +148,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  curb
   jbuilder (~> 1.2)
   jquery-rails
   nokogiri (>= 1.6.0)

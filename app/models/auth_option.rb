@@ -1,6 +1,6 @@
 class AuthOption < ActiveRecord::Base
 
-	belongs_to :user
+  belongs_to :user
 
   def self.find_or_create(provider, uid)
     auth_opt = AuthOption.where(provider: provider, uid: uid).first

@@ -1,9 +1,10 @@
-.feed data-fid="#{@feed.id}"
-  h2 id="#feed_#{@feed.id}"
-    = @feed.name
+- @items.each do |i|
+  - icon = 'icon/' + i[:logo].to_s
+  - item = i[:item]
+  - feed_name = i[:feed_name]
 
-  - @content.each do |item|
+  div
     = render :partial => "title", :locals => { :link_url => item["Link"], :title_arr => item["Title"] }
-    = render :partial => "author", :locals => { :author_arr => item["Author"] }
+    = render :partial => "author", :locals => { :icon => icon, :author_arr => item["Author"], :feed_name => feed_name }
     = render :partial => "desc", :locals => { :desc_arr => item["Description"], :image_arr => item["Image"] }
     hr

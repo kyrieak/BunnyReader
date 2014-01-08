@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def home
+    session[:current_lang] = 2
+    @language = session[:current_lang]
+    @bg_url = Bg.find(rand(1..9)).name
+
+    render "layouts/application"
+  end
+
 end

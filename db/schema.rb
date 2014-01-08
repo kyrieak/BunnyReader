@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126035329) do
+ActiveRecord::Schema.define(version: 20131125221105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,28 +27,18 @@ ActiveRecord::Schema.define(version: 20131126035329) do
 
   create_table "bgs", force: true do |t|
     t.string   "name"
-    t.integer  "color_key"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "defaults", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "language_id"
-    t.integer  "bg_id"
-    t.boolean  "shuffle"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "feeds", force: true do |t|
+    t.integer  "language_id"
     t.string   "url"
     t.string   "name"
     t.string   "item_node_name"
+    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo"
-    t.integer  "language_id"
   end
 
   create_table "tags", force: true do |t|
@@ -65,10 +55,13 @@ ActiveRecord::Schema.define(version: 20131126035329) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "pass"
+    t.string   "pass_confirm"
+    t.integer  "lang_id"
+    t.integer  "bg_id"
+    t.boolean  "shuffle"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "pass"
-    t.boolean  "pass_confirm"
   end
 
 end

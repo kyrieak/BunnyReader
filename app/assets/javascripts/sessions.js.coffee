@@ -23,7 +23,7 @@ $(document).ready ->
     $("#back").toggleClass('hide')
     $("#next").toggleClass('hide')
 
-  $("#menu_area").slideToggle('slow')
+  # $("#menu_area").slideToggle('slow')
   
   $("#email_section h5").click ->
     $("#email_login").slideToggle('fast')

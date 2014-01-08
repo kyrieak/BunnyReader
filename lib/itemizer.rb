@@ -1,13 +1,14 @@
 class Itemizer
 
-  def initialize(feed)
+  def initialize(feed, max_items)
     @feed = feed
+    @max_items = max_items
     @items = parse_feed(@feed)
   end
 
 
   def items_with_feed
-    @items.collect{ |i| { feed_id: @feed.id, logo: @feed.logo, item: i } }
+    @items.collect{ |i| { feed_id: @feed.id, feed_name: @feed.name, logo: @feed.logo, item: i } }
   end
 
   private
@@ -16,14 +17,27 @@ class Itemizer
 
   def parse_feed(feed)
     result = []
+    puts "Retrieving RSS ----------------------------"
+    puts feed.url
+    t1 = Time.now
+    open(feed.url)
+    t2 = Time.now
+    puts (t2 - t1)
     doc = Nokogiri::XML(open(feed.url))
+    puts "Parsings RSS ------------------------------"
+    t3 = Time.now
     items = doc.xpath("//#{feed.item_node_name}").to_a
+    
+    items = items[0...@max_items] if (items.length > @max_items)
     
     items.each do |i|
       item = {}
       feed.tags.each{ |t| item[t.name] = tag_val(t, i) }
       result << item
     end
+    t4 = Time.now
+    puts (t4 - t3)
+    puts "------------------------------------------"
     result
   end
 

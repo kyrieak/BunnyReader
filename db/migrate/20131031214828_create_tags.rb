@@ -7,6 +7,7 @@ class CreateTags < ActiveRecord::Migration
       t.string :att_name
       t.boolean :get_node_att
       t.boolean :get_node_cont
+      
       t.timestamps
     end
   end

@@ -1,13 +1,7 @@
 - if link_url
   a href="#{link_url.first}" target="_blank"
     h3
-      - if title_arr
-        = title_arr.first
-      - else
-        | Link to this article
+      = title_arr ? title_arr.first : "Link to this article"
 - else
   h3
-  - if title_arr
-    = title_arr.first
-  - else
-    | (Title)
+    = title_arr ? title_arr.first : "(Title)"

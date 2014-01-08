@@ -10,12 +10,17 @@
 # seed_nyt
 # seed_guardian
 
-# 1 red
-# 2 orange
-# 3 yellow
-# 4 green
-# 5 blue
-# 6 violet
-# 7 monocrome
-# 8 neutral
+# def seed_bgs
+#   Bg.create(name: 'abstract_curtain_with_bluish_tint.jpg')
+#   Bg.create(name: 'dark-stone-wall-background-tile.jpg')
+#   Bg.create(name: 'glassy-orange-pattern.jpg')
+#   Bg.create(name: 'maple-seamless_wood_texture.jpg')
+#   Bg.create(name: 'polished-stone-gray-website-background.jpg')
+#   Bg.create(name: 'seamless-paper-texture-light-blue-gray.jpg')
+#   Bg.create(name: 'seamless_green_background.jpg')
+#   Bg.create(name: 'seamless_light_blue_texture_for_web_sites.jpg')
+#   Bg.create(name: 'tileable-dark-brown-wood-background.jpg')
+# end
 
+
+# seed_bgs

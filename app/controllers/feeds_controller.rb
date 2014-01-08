@@ -2,37 +2,51 @@ require 'itemizer'
 
 class FeedsController < ApplicationController
 
+  respond_to :json
+
   def index
-    @items = []
     @language = session[:current_lang]
-    @language = 1
-    @bg_url = Bg.find(rand(1..9)).name
-    feed_list = Feed.all.where(language_id: @language)
-    puts feed_list
-    feed_list.each do |f|
-      f_items = Itemizer.new(f).items_with_feed
-      (@items += f_items) if f_items.any?
-    end
+    @feed_ids = Feed.all.where(language_id: @language).to_a.collect{ |f| f.id }
 
-    @items.shuffle!
-    puts @feeds
-    puts "------------------------------------------------"
-
-    render :action => "index"
+    respond_with @feed_ids
   end
+
+  # def index
+  #   @items = []
+  #   @language = session[:current_lang]
+  #   feed_list = Feed.all.where(language_id: @language)
+
+  #   feed_list.each do |f|
+  #     f_items = Itemizer.new(f, 2).items_with_feed
+  #     (@items += f_items) if f_items.any?
+  #   end
+
+  #   @items.shuffle!
+  #   puts @feeds
+  #   puts "------------------------------------------------"
+
+  #   render :action => "index", :layout => false
+  # end
 
 
 
   # -------------------------------------------------------------------------------
-  
+
   def show
-    f = Feed.find(params[:id])
-    @feed = f
-    @content = parse_feed(f.url,
-                          f.item_node_name,
-                          f.tags)
+    @feed = Feed.find(params[:id])
+    @items = Itemizer.new(@feed, 2).items_with_feed
+    
     render :action => "show", :layout => false
   end
+  
+  # def show
+  #   f = Feed.find(params[:id])
+  #   @feed = f
+  #   @content = parse_feed(f.url,
+  #                         f.item_node_name,
+  #                         f.tags)
+  #   render :action => "show", :layout => false
+  # end
 
 
 # =================================================================================

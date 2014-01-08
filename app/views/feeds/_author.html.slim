@@ -1,4 +1,6 @@
-- if author_arr
-  h5
-    img[src="#{asset_path(icon.to_s)}" style='max-height:16px; width: auto; margin-right: 0.5em']
+h5
+  img[src="#{asset_path(icon.to_s)}" style='max-height:16px; width: auto; margin-right: 0.5em']
+  - if author_arr
     = author_arr.join(", ")
+  - else
+    = feed_name
