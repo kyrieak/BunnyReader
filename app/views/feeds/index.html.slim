@@ -1,8 +1,7 @@
 #area[style="background-color: #f8f8f8; padding-top: 1.5em; "]
   - @items.each do |i|
     - icon = 'icon/' + i[:logo].to_s
-    - item = i[:item]
-
+    - item = i[:item] 
     div
       = render :partial => "title", :locals => { :link_url => item["Link"], :title_arr => item["Title"] }
       = render :partial => "author", :locals => { :icon => icon, :author_arr => item["Author"] }

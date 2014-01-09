@@ -7,12 +7,15 @@ class FeedsController < ApplicationController
   def index
     @bg_url = Bg.find(rand(1..9)).name
     @language = session[:current_lang]
-    @feeds = [Feed.all.where(language_id: @language).to_a[0]]
+    @feeds = Feed.all.where(language_id: @language).to_a
     shuffle = true
     @items = Curler.new(@feeds).items(shuffle)
     puts @items
-
-    render :action => "index"
+    if @language == 2
+      render "index_jp"
+    else
+      render :action => "index"
+    end
   end
   
 # =================================================================================

@@ -95,6 +95,7 @@ class Curler
     else
       val = []
     end
+    val.delete("")
 
     return val
   end
