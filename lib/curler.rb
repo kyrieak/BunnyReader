@@ -1,8 +1,10 @@
 class Curler
 
+  @@m_curl = Curl::Multi.new
+
   def initialize(feeds)
     @feeds = feeds
-    @m_curl = Curl::Multi.new
+    @@m_curl.pipeline = true
     @responses = {}
     @items = []
   end
@@ -31,7 +33,7 @@ class Curler
         end
       end
 
-      @m_curl.add(e_curl)
+      @@m_curl.add(e_curl)
     end
 
   end
@@ -45,29 +47,21 @@ class Curler
     i = 0
     len = @feeds.length
 
-    @m_curl.perform do
+    @@m_curl.perform do
       puts "idling... can do some work here"
-      if (i < len)
-        feed = @feeds[i]
-        if (@responses[feed])
-          parse_feed(feed, @responses[feed])
-          puts "herehereherehereherehereherehereherehereherehereherehere"
-          puts "items? #{@items}"
-          i += 1
-        end
-      end
     end
+
     te = Time.now
     puts "perform time #{te - tp}"
     puts "-------------------------------------------------------------------------------"
 
-    # @responses.each do |feed, response|
-    #   t1 = Time.now
-    #   parse_feed(feed, response)
-    #   t2 = Time.now
-    #   puts "parse time: #{t2 - t1}"
-    #   puts "-------------------------------------------------------------------------------"
-    # end
+    @responses.each do |feed, response|
+      t1 = Time.now
+      parse_feed(feed, response)
+      t2 = Time.now
+      puts "parse time: #{t2 - t1}"
+      puts "-------------------------------------------------------------------------------"
+    end
 
   end
 
