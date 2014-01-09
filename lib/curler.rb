@@ -1,66 +1,58 @@
 class Curler
 
-  @@m_curl = Curl::Multi.new
+  @@hydra = Typhoeus::Hydra.new(max_concurrency: 6)
 
   def initialize(feed_tags)
     @feed_tags = feed_tags
-    @@m_curl.pipeline = true
-    @responses = {}
+    #@responses = Hash.new("")
     @items = []
+    add_feeds_to_queue(@feed_tags.keys)
   end
 
   def items(shuffle = false)
-    m_perform
+    puts "------------------------------------------------------------------------"
+    t1 = Time.now
+    @@hydra.run
+    t2 = Time.now
+    puts (t2 - t1)
+    puts "------------------------------------------------------------------------"
     shuffle ? @items.shuffle : @items
   end
 
   private
 
-  def m_setup
-    # add a few easy handles
-    @feed_tags.each_key do |feed|
-      url = feed.url
-      @responses[feed] = ""
-      
-      e_curl = Curl::Easy.new(url) do |curl|
-        curl.follow_location = true
-        curl.on_body do |data|
-          @responses[feed] << data
-          data.size
-        end
-        curl.on_success do |easy|
-          puts "success, add more easy handles."
-        end
-      end
+  def add_feeds_to_queue(feeds)
+    feeds.each{ |f| add_queue(f) }
+  end
 
-      @@m_curl.add(e_curl)
-    end
-
+  def add_queue(feed)
+    @@hydra.queue new_request(feed)
   end
 
   # -------------------------------------------------------------------------------
 
-  def m_perform
-    m_setup
+  def new_request(feed)
+    request = Typhoeus::Request.new(feed.url)
 
-    tp = Time.now
+    #request.on_body{ |chunk| @responses[feed] << chunk }
 
-    @@m_curl.perform do
-      # puts "idling... can do some work here"
+    request.on_complete do |resp|
+      if resp.success?
+        parse_feed(feed, resp.body)
+        puts ("response - success :)")
+        # log("response - success :)")
+      elsif resp.timed_out?
+        puts ("response - timed out :(")
+        # log("response - timed out :(")
+      elsif resp.code == 0
+        puts ("response code 0: " << resp.return_message)
+        # log("response code 0: " << response.return_message)
+      else
+        puts ("response - failed: " << resp.code.to_s)
+        # log("response - failed: " << response.code.to_s)
+      end
     end
-
-    te = Time.now
-    puts "perform time #{te - tp}"
-    puts "-------------------------------------------------------------------------------"
-
-    @responses.each do |feed, response|
-      t1 = Time.now
-      parse_feed(feed, response)
-      t2 = Time.now
-      puts "parse time: #{t2 - t1}"
-      puts "-------------------------------------------------------------------------------"
-    end
-
+    return request
   end
 
   # -------------------------------------------------------------------------------
@@ -113,7 +105,6 @@ class Curler
                            .gsub(/(\<[^\<\>]+\>)/, ' ')
       
       if t_name == "Description" && clean_str.length > 480
-         len = clean_str.length
          i = clean_str[0..480].rindex(' ')
          clean_str = clean_str[0...i] if i
       end

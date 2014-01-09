@@ -15,7 +15,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # -----------------------------------
 
-gem 'curb'
+gem 'typhoeus'
 gem 'nokogiri', '>=1.6.0'
 
 gem 'slim'
