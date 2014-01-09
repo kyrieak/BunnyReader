@@ -5,6 +5,7 @@ head
   meta[name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"]
   link[rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"]
   = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+  link[rel="stylesheet" href="/assets/lang_jp.css"]
   script[type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"]
   script[type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"]
   = javascript_include_tag "application", "data-turbolinks-track" => true   
@@ -16,8 +17,8 @@ head
       e.preventDefault(); // no page reload
     }
 
-  body[style="background: url('bg_tiles/#{@bg_url}') repeat fixed"]
-    .container[id="nav_area"]
+  body.japanese[style="background: url('bg_tiles/#{@bg_url}') repeat fixed"]
+    .container[style="position: fixed; max-width: none; width: 100%; background-color: rgba(255,255,255,0.5); z-index:500"]
       .nav.row
         .col-md-3
           | &nbsp;
@@ -33,5 +34,5 @@ head
         .col-md-3
     .notice
       = flash[:notice]
-    .container[style="margin: 0 auto; width: 65%"]
+    .container[style="margin: 0 auto; width: 75%"]
       = yield

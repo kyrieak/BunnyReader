@@ -1,5 +1,5 @@
-img src="#{image_arr.first}" align="left"
-  - if link_url
-    a href="#{link_url.first}" target="_blank"
-  h3[style="display:inline"]
-    = title_arr ? title_arr.first : "(Title Link)"
+.desc
+  img src="#{image_arr.first}" align="left"
+  a href="#{link_url.first}" target="_blank"
+    h3[style="display:inline"]
+      = title_arr ? title_arr.first : "(Title Link)"

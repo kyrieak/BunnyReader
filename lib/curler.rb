@@ -2,8 +2,8 @@ class Curler
 
   @@m_curl = Curl::Multi.new
 
-  def initialize(feeds)
-    @feeds = feeds
+  def initialize(feed_tags)
+    @feed_tags = feed_tags
     @@m_curl.pipeline = true
     @responses = {}
     @items = []
@@ -18,14 +18,14 @@ class Curler
 
   def m_setup
     # add a few easy handles
-    @feeds.each do |f|
-      url = f.url
-      @responses[f] = ""
+    @feed_tags.each_key do |feed|
+      url = feed.url
+      @responses[feed] = ""
       
       e_curl = Curl::Easy.new(url) do |curl|
         curl.follow_location = true
         curl.on_body do |data|
-          @responses[f] << data
+          @responses[feed] << data
           data.size
         end
         curl.on_success do |easy|
@@ -44,11 +44,9 @@ class Curler
     m_setup
 
     tp = Time.now
-    i = 0
-    len = @feeds.length
 
     @@m_curl.perform do
-      puts "idling... can do some work here"
+      # puts "idling... can do some work here"
     end
 
     te = Time.now
@@ -70,10 +68,11 @@ class Curler
   def parse_feed(feed, response) 
     doc = Nokogiri::XML(response)
     item_nodes = doc.xpath("//#{feed.item_node_name}").to_a
-    
+    tags = @feed_tags[feed]
+
     item_nodes.each do |i|
       item = {}
-      feed.tags.each{ |t| item[t.name] = tag_val(t, i) }
+      tags.each{ |t| item[t.name] = tag_val(t, i) }
       
       item["Author"] = [feed.name] if item["Author"].nil?
 
@@ -123,11 +122,4 @@ class Curler
     clean_str
   end
 
-end
-
-f = Feed.all.where({ language_id: 2 })
-curler = Curler.new(f)
-curler.items.each do |i|
-  puts i
-  puts "---------------"
 end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     else
       @logged_in = false
     end
-    session[:current_lang] = 2
+    session[:current_lang] = 1
   end
   
 end
