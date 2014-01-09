@@ -1,54 +1,20 @@
-require 'itemizer'
+require 'curler'
 
 class FeedsController < ApplicationController
 
-  respond_to :json
+  # respond_to :json
 
   def index
+    @bg_url = Bg.find(rand(1..9)).name
     @language = session[:current_lang]
-    @feed_ids = Feed.all.where(language_id: @language).to_a.collect{ |f| f.id }
+    @feeds = [Feed.all.where(language_id: @language).to_a[0]]
+    shuffle = true
+    @items = Curler.new(@feeds).items(shuffle)
+    puts @items
 
-    respond_with @feed_ids
-  end
-
-  # def index
-  #   @items = []
-  #   @language = session[:current_lang]
-  #   feed_list = Feed.all.where(language_id: @language)
-
-  #   feed_list.each do |f|
-  #     f_items = Itemizer.new(f, 2).items_with_feed
-  #     (@items += f_items) if f_items.any?
-  #   end
-
-  #   @items.shuffle!
-  #   puts @feeds
-  #   puts "------------------------------------------------"
-
-  #   render :action => "index", :layout => false
-  # end
-
-
-
-  # -------------------------------------------------------------------------------
-
-  def show
-    @feed = Feed.find(params[:id])
-    @items = Itemizer.new(@feed, 2).items_with_feed
-    
-    render :action => "show", :layout => false
+    render :action => "index"
   end
   
-  # def show
-  #   f = Feed.find(params[:id])
-  #   @feed = f
-  #   @content = parse_feed(f.url,
-  #                         f.item_node_name,
-  #                         f.tags)
-  #   render :action => "show", :layout => false
-  # end
-
-
 # =================================================================================
 
   private

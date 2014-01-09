@@ -56,20 +56,6 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "Logged out :)"
   end
 
-  def get_defaults
-    if session[:current_user] == "Guest"
-      @bg_name = Bg.first.name
-    else
-      @user = User.find(session[:current_user])
-      @bg_name = @user.default.bg.name
-    end
-
-    respond_to do |format|
-      format.js{ render js: @bg_name }
-    end
-
-  end
-
 # ---------------------------------------------------------------------
 
   private

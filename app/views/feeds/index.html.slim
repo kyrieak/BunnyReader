@@ -1,11 +1,10 @@
-/ #area[style="background-color: #f8f8f8; padding-top: 1.5em; "]
+#area[style="background-color: #f8f8f8; padding-top: 1.5em; "]
   - @items.each do |i|
     - icon = 'icon/' + i[:logo].to_s
     - item = i[:item]
-    - feed_name = i[:feed_name]
 
     div
       = render :partial => "title", :locals => { :link_url => item["Link"], :title_arr => item["Title"] }
-      = render :partial => "author", :locals => { :icon => icon, :author_arr => item["Author"], :feed_name => feed_name }
+      = render :partial => "author", :locals => { :icon => icon, :author_arr => item["Author"] }
       = render :partial => "desc", :locals => { :desc_arr => item["Description"], :image_arr => item["Image"] }
       hr
