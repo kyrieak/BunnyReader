@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  LANG = { 1 => "English", 2 => "日本語" }
+
+  def lang_str(lang_id)
+    LANG[lang_id]
+  end
+
   def expand_button
     content_tag :a, { class: 'menu glyphicon icon_bar_outer' } do
       concat(content_tag :span, '', class: 'icon-bar')

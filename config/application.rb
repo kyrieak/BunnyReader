@@ -10,9 +10,6 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 
-LANG_ENG = 1
-LANG_JP = 2 
-
 Bundler.require(:default, Rails.env)
 
 module BunnyReader

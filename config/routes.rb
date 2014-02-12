@@ -1,5 +1,5 @@
 BunnyReader::Application.routes.draw do
-  get "users/show"
+  resources :users
   resources :feeds
   
   root 'feeds#index'

@@ -1,0 +1,36 @@
+br
+hr
+
+form [action="" method=""]
+  | name:
+  input [type="text" placeholder="#{@user.name}"]
+  br
+  | email:
+  input [type="text" placeholder="#{@user.email}"]
+  br
+  | password:
+  a [href=""]
+    | Link to change password
+  br
+  | Primary Language:
+  span [data-lang_id="#{@user.lang_id}"]
+    = lang_str(@user.lang_id)
+  br
+  | Bg Settings:
+  select
+    - @bg_options.each do |opt|
+      - if (opt[1] == @user.bg_id)
+        option [value=opt[1] selected title="hi"]
+          | here
+          img [src="opt[0]" alt="#{opt[0]}"]
+      - else
+        option[value=opt[1] title="hii"]
+          | here 2
+          img [src="opt[0]" alt="#{opt[0]}"]
+      br
+  br
+  | Feed Settings (on/off): some kind of list
+  br
+  | Shuffle / Ordered:
+  = @user.shuffle
+  br
