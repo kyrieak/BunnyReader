@@ -1,36 +1,54 @@
 br
+br
+br
+br
 hr
 
-form [action="" method=""]
-  | name:
-  input [type="text" placeholder="#{@user.name}"]
-  br
-  | email:
-  input [type="text" placeholder="#{@user.email}"]
-  br
-  | password:
-  a [href=""]
-    | Link to change password
-  br
-  | Primary Language:
-  span [data-lang_id="#{@user.lang_id}"]
-    = lang_str(@user.lang_id)
-  br
-  | Bg Settings:
-  select
-    - @bg_options.each do |opt|
-      - if (opt[1] == @user.bg_id)
-        option [value=opt[1] selected title="hi"]
-          | here
-          img [src="opt[0]" alt="#{opt[0]}"]
-      - else
-        option[value=opt[1] title="hii"]
-          | here 2
-          img [src="opt[0]" alt="#{opt[0]}"]
-      br
-  br
-  | Feed Settings (on/off): some kind of list
-  br
-  | Shuffle / Ordered:
-  = @user.shuffle
-  br
+table
+  form [action="" method=""]
+    tr
+      td
+        | name:
+      td
+        input [type="text" placeholder="#{@user.name}"]
+    tr
+      td
+        | email:
+      td
+        input [type="text" placeholder="#{@user.email}"]
+    tr
+      td
+        | password:
+      td
+        a [href=""]
+          | Link to change password
+    tr
+      td
+        | Primary Language:
+      td
+        span [data-lang_id="#{@user.lang_id}"]
+          = lang_str(@user.lang_id)
+    tr
+      td
+        | Bg Settings:
+      td
+        select [id="bg_options" style="visibility: hidden"]
+          - @bg_options.each do |opt|
+            - if (opt[1] == @user.bg_id)
+              option [value=opt[1] selected data-bg_label=opt[0]]
+                | opt[0]
+            - else
+              option[value=opt[1] data-bg_label=opt[0]]
+                | opt[0]
+        div [id="container_bg_tiles" style="height: 120px; width: 500px; overflow-x: scroll"]
+          div [id="bg_tile" style="width: 920px; display: inline-block;"]
+    tr
+      td
+        | Feed Settings (on/off):
+      td
+        | some kind of list
+    tr
+      td
+        | Shuffle / Ordered:
+      td
+        = @user.shuffle

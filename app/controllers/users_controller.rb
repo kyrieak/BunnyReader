@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def edit
-    @bg_options = Bg.options
+    @bg_options = Bg.options.sort{ |opt_a, opt_b| opt_b[0] <=> opt_a[0] }
     @user = User.find(params[:id])
     render "user_settings"
   end
