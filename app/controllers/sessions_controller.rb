@@ -35,21 +35,6 @@ class SessionsController < ApplicationController
   end
 
   
-  def email_account
-    pass_confirm = (params[:pass] == params[:pass_confirm])
-
-    @user = User.new(params[:email],
-                     params[:pass],
-                     pass_confirm)
-    
-    if @user.save
-      flash[:notice] = "Saved, success!"
-    else
-      flash[:notice] = "Did not save :( try again?"
-    end
-  end
-
-  
   def destroy
     set_currents(nil, nil)
 
@@ -61,7 +46,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:name, :email,
+    params.require(:user).permit(:name, :email, :pass, :pass_confirm,
                                  auth_options: [:provider, :uid, :name])
   end
 

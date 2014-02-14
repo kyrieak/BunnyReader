@@ -9,7 +9,7 @@ BunnyReader::Application.routes.draw do
   get "/email_login" => "sessions#login_with_email"
   get "/guest_login" => "sessions#login_as_guest"
 
-  post "/email_account" => "sessions#create"
+  post "/user_account" => "users#user_account"
   post "/logout" => "sessions#destroy"
 
   get "/get_defaults" => "sessions#get_defaults"

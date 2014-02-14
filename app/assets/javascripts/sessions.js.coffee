@@ -25,9 +25,18 @@ $(document).ready ->
 
   # $("#menu_area").slideToggle('slow')
   
-  $("#email_section h5").click ->
-    $("#email_login").slideToggle('fast')
-    $("#email_account").slideToggle('fast')
+  $("#login_option").click ->
+    opt = $(this).data("option")
+
+    $("#login_omni").slideToggle('fast')
+    $("#login_email").slideToggle('fast')
+    
+    if (opt == "omni")
+      $(this).data("option", "email")
+      $(this).html("or Login with your social media account")
+    else
+      $(this).data("option", "omni")
+      $(this).html("or Login with your email")
 
   $(".menu").click ->
     $("#menu_area").slideToggle('slow')

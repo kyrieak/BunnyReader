@@ -17,8 +17,24 @@ class UsersController < ApplicationController
     @user.save
   end
 
+  def user_account
+    pass_confirm = (user_params[:pass] == user_params[:pass_confirm])
+
+    @user = User.new(email: user_params[:email],
+                     pass: user_params[:pass],
+                     pass_confirm: pass_confirm)
+    
+    if @user.save
+      flash[:notice] = "Saved, success!"
+    else
+      flash[:notice] = "Did not save :( try again?"
+    end
+
+    redirect_to :back
+  end
+
   def user_params
-    params.require(:user).permit(:name, :email, :lang_id, bg: [:label])
+    params.require(:user).permit(:name, :email, :pass, :pass_confirm, :lang_id, bg: [:label])
   end
 
 end

@@ -4,19 +4,16 @@
     - if logged_in? 
       .row
         = 'hi'
-      / .row[style='display:none']
-      /   .col-md-6
-      /     = user_feeds 
-      /   .col-md-6
-      /     = user_settings 
-      /   .col-md-6
-      /     = user_account 
     - else
       .row
         .col-md-6[id="login_left"]
           = login_omni 
         .col-md-6[id="email_section"]
           = login_email 
+    - if logged_in? || !logged_in?
+      .row
+        .col-md-6
+          | You are also welcome to continue browsing as Guest
     .row
       .col-md-2[align="left"]
         = back_button 

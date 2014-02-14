@@ -4,5 +4,6 @@
 $('document').ready ->
   token = $('meta[name="csrf-token"]').attr('content')
   hidden_csrf = $.find("input:hidden[name=\"authenticity_token\"]")
-  console.log(hidden_csrf)
-  $(hidden_csrf).attr('value', token)
+  
+  for hidden_auth_input in hidden_csrf
+    $(hidden_auth_input).attr('value', token)

@@ -52,11 +52,11 @@ hr {
   text-decoration: underline;
 }
 
-.remove_left_pad {
+.no_left_pad {
   padding-left: 0px;
 }
 
-.remove_right_pad {
+.no_right_pad {
   padding-right: 0px;
 }
 
@@ -94,4 +94,36 @@ hr {
 
 .hide {
   visibility: hidden;
+}
+
+.row {
+  margin-bottom: 0.3em;
+}
+
+table.form_layout {
+  width: 80%;
+  margin: 0 10%;
+}
+
+table.form_layout td.field_label {
+  width: 15%;
+  padding-right: 5%;
+}
+
+td.field_label {
+  width: 15%;
+  padding-right: 5%;
+}
+
+td.field_input {
+  width: 85%;
+}
+
+td.field_input input {
+  display: inline-block;
+  width: 100%;
+}
+
+input[type="submit"] {
+  padding: 0 1em;
 }

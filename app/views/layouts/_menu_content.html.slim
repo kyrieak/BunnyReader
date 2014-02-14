@@ -1,7 +1,7 @@
 #menu_area[class="jumbotron" style="display: none"]
   .container
     - if logged_in? 
-      .row[style='display:none']
+      .row[style='display:none; height: 400px']
         .col-md-6
           = user_feeds 
         .col-md-6
@@ -9,12 +9,14 @@
         .col-md-6
           = user_account 
     - else
-      .row
+      .row [style="height: 400px"]
         .col-md-6[id="login_left"]
           = login_omni 
         .col-md-6[id="email_section"]
           = login_email
   #menu_nav
+    - if !logged_in? || logged_in
+      | You are also welcome to continue browsing as Guest :)
     .col-md-2[align="left"]
       = back_button 
     .col-md-2[align="center"]
