@@ -1,0 +1,28 @@
+br
+br
+br
+br
+hr
+
+table
+  tr
+    td [style="padding: 1em; width: 20em"]
+      | Resource
+    td [style="padding: 1em"]
+      | Main Site
+    td [style="padding: 1em; width: 12em"]
+      | Author / Owner
+    td [style="padding: 1em"]
+      | Note
+  - @resources.each do |r|
+    tr
+      td [style="padding: 1em"]
+        a [href="http://#{r.source_url}" style="color: #428bca; text-decoration: underline" valign="top"]
+          = r.title
+      td [style="padding: 1em; font-size: 0.85em" valign="top"]
+        a [href="http://#{r.main_source_url}" style="color: #428bca; text-decoration: underline" valign="top"]
+          = r.main_source_name
+      td [style="padding: 1em; font-size: 0.85em" valign="top"]
+        = r.author
+      td [style="padding: 1em; font-size: 0.85em" valign="top"]
+        = r.note

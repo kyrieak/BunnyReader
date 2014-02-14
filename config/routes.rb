@@ -1,4 +1,5 @@
 BunnyReader::Application.routes.draw do
+  resources :resources
   resources :users
   resources :feeds
   

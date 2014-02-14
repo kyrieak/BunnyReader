@@ -17,4 +17,5 @@
 //= require feeds
 //= require sessions
 //= require users
+//= require resources
 //= require_self

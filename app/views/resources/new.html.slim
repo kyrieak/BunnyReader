@@ -1,0 +1,39 @@
+br
+br
+br
+br
+hr
+
+table
+  form [action="/resources" method="POST" accept-charset="UTF-8" name="add_resource"]
+    input [type="hidden" name="authenticity_token" value=""]
+    tr
+      td
+        | Title:
+      td
+        input [type="text" name="resource[title]" value="Sample Title"]
+    tr
+      td
+        | Author:
+      td
+        input [type="text" name="resource[author]" value="Sample Author"]
+    tr
+      td
+        | Source Url:
+      td
+        input [type="text" name="resource[source_url]" value="Sample Source Url"]
+    tr
+      td
+        | Main Source Name:
+      td
+        input [type="text" name="resource[main_source_name]" value="Sample Main Source Name"]
+    tr
+      td
+        | Main Source Url:
+      td
+        input [type="text" name="resource[main_source_url]" value="Sample Main Source Url"]
+    tr
+      td
+        input [type="submit" value="Submit"]
+      td
+        input [type="reset" value="Clear"]

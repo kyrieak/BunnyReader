@@ -1,0 +1,37 @@
+doctype html
+html
+head
+  title BunnyReader
+  meta[name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"]
+  link[rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"]
+  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+  script[type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"]
+  script[type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"]
+  = javascript_include_tag "application", "data-turbolinks-track" => true   
+  = csrf_meta_tags
+  javascript:
+    if (window.location.hash == '#_=_') {
+      window.location.hash = ''; // for older browsers, leaves a # behind
+      history.pushState('', document.title, window.location.pathname); // nice and clean
+      e.preventDefault(); // no page reload
+    }
+
+  body[style="background: url('bg_tiles/#{@bg_url}') repeat fixed"]
+    .container[id="nav_area"]
+      .nav.row
+        .col-md-3
+          | &nbsp;
+        .col-md-6[align="center"]
+          #login_header[class="btn menu"]
+            | Login
+        .col-md-3
+          | &nbsp;
+      .nav.row[id="menu_content"]
+        .col-md-3
+        .col-md-6
+          = render partial: "menu/menu_content"
+        .col-md-3
+    .notice
+      = flash[:notice]
+    .container[style="margin: 0 auto; width: 85%"]
+      = yield
