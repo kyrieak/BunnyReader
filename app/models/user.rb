@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :auth_options
+  belongs_to :bg
 
   def self.find_by_email(email, pass)
     User.where(email: email, pass: pass).first
