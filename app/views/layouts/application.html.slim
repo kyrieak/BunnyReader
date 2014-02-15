@@ -17,21 +17,25 @@ head
     }
 
   body[style="background: url('/bg_tiles/tile_full_#{@bg_label}.jpg') repeat fixed"]
+    #overlay [style="display: none"]
     .container[id="nav_area"]
       .nav.row
-        .col-md-3
+        .col-md-2
           | &nbsp;
-        .col-md-6[align="center"]
+        .col-md-8 [align="center" style="background-color: #f8f8f8"]
           #login_header[class="btn menu"]
             | Login
-        .col-md-3
+        .col-md-2
           | &nbsp;
-      .nav.row[id="menu_content"]
-        .col-md-3
-        .col-md-6
-          = render partial: "menu/menu_content"
-        .col-md-3
+      .row [id="menu" style="display: none"]
+        .col-md-2
+          | &nbsp;
+        .col-md-8
+          #menu_content [style="background-color: #fbfbfb"]
+            = render partial: "menu/menu_content"
+        .col-md-2
+          | &nbsp;
     .notice
       = flash[:notice]
-    .container[style="margin: 0 auto; width: 65%; height: 900px; background-color: #f8f8f8"]
+    .container[style="margin: 0 auto; width: 66.6%; background-color: #f8f8f8" id="main"]
       = yield

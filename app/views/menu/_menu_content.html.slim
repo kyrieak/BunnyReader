@@ -1,23 +1,37 @@
-#menu_area[class="jumbotron" style="display: none"]
-  .container
-    - @logged_in = false
-    - if logged_in? 
-      .row
-        = 'hi'
-    - else
-      .row
-        .col-md-6[id="login_left"]
-          = login_omni 
-        .col-md-6[id="email_section"]
-          = login_email 
-    - if logged_in? || !logged_in?
-      .row
-        .col-md-6
-          | You are also welcome to continue browsing as Guest
+.container
+  - @logged_in = false
+  - if logged_in? 
     .row
-      .col-md-2[align="left"]
-        = back_button 
-      .col-md-2[align="center"]
-        = expand_button 
-      .col-md-2[align="right"]
-        = next_button 
+      = 'hi'
+  - else
+    .row
+      .col-md-6[style="height: 220px;"]
+        .panel [id="login_section"]
+          = render partial: '/menu/login_form'
+        .panel [id="create_account" style="display: none"]
+          = render partial: '/menu/create_account'
+      .col-md-6
+        | &nbsp;
+    .row
+      .col-md-6
+        #login_option [data-option="omni"]
+          h4.center.link_like
+            | Login with your email
+      .col-md-6
+        | &nbsp;
+    .row
+      .col-md-6
+        h4.center
+          | You are also welcome to continue browsing as Guest
+      .col-md-6
+  .row
+    .col-md-12
+  .row [id="bottom"]
+    .col-md-2[align="left"]
+      = back_button 
+    .col-md-2[align="center"]
+      = expand_button 
+    .col-md-2[align="right"]
+      = next_button 
+    .col-md-6
+      | &nbsp;

@@ -25,15 +25,7 @@ module ApplicationHelper
       content_tag :span, '', { class: 'glyphicon glyphicon-circle-arrow-left' }
     end
   end
-
-  def login_omni
-    render partial: '/menu/login_with_account', locals: {}
-  end
-
-  def login_email
-    render partial: '/menu/email_account', locals: {}
-  end
-
+  
   def user_feeds
     render partial: '/menu/user_feeds'
   end

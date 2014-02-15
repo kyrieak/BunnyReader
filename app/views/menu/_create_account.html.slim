@@ -1,0 +1,28 @@
+h4.center
+  | Create an account
+br
+table.form_layout
+  form [action="/user_account" method="POST" accept-charset="UTF-8" name="user_account"]
+    input [type="hidden" name="authenticity_token" value=""]
+    tr
+      td.field_label
+        label [for="user_email"]
+          | Email
+      td.field_input
+        input [type="text" name="user[email]" id="user_email"]
+    tr
+      td.field_label
+        label [for="user_pass"]
+          | Password
+      td.field_input
+        input [type="password" name="user[pass]" id="user_pass"]
+    tr
+      td.field_label
+        label [for="user_pass_confirm"]
+          | Password
+      td.field_input
+        input [type="password" name="user[pass_confirm]" id="user_pass_confirm"]
+    tr
+      td.field_label
+      td [align="right"]
+        input [type="submit" value="Login"]

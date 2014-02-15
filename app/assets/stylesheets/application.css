@@ -19,85 +19,13 @@ body {
   font-size: 16px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 p {
   font-size: 1em;
   line-height: 1.7em;
-}
-
-a {
-  color: #333333;
-}
-
-a:hover {
-  color: #428BCA;
-}
-
-#nav_area {
-  position: fixed;
-  max-width: none;
-  width: 100%;
-  background-color: rgba(255,255,255,0.5);
-  z-index:500
-}
-
-hr {
-  border-color: #CCCCCC;
-}
-
-.link_like {
-  color: #428bca
-}
-
-.link_like:hover {
-  text-decoration: underline;
-}
-
-.no_left_pad {
-  padding-left: 0px;
-}
-
-.no_right_pad {
-  padding-right: 0px;
-}
-
-.smaller {
-  font-size: 0.75em;
-}
-
-.glyphicon {
-  color: #AAAAAA;
-  font-size: 1.2em;
-}
-
-.glyphicon:hover {
-  color: #428BCA;
-}
-
-.icon_bar_outer {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  height: 0.75em;
-}
-.icon-bar {
-  display: block;
-  background-color: #AAAAAA;
-  width: 22px;
-  height: 2px;
-  margin: 2px;
-  border-radius: 1px;
-}
-
-.icon_bar_outer:hover .icon-bar {
-  background-color: #428BCA;
-}
-
-.hide {
-  visibility: hidden;
-}
-
-.row {
-  margin-bottom: 0.3em;
 }
 
 table.form_layout {
@@ -126,4 +54,59 @@ td.field_input input {
 
 input[type="submit"] {
   padding: 0 1em;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.no_padding {
+  padding: 0;
+}
+
+.no_margin {
+  margin: 0;
+}
+
+.no_left_pad {
+  padding-left: 0px;
+}
+
+.no_right_pad {
+  padding-right: 0px;
+}
+
+.center {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #428BCA;
+}
+
+hr {
+  border-color: #CCCCCC;
+}
+
+.link_like {
+  color: #428bca
+}
+
+.link_like:hover {
+  text-decoration: underline;
+}
+
+.glyphicon {
+  color: #AAAAAA;
+  font-size: 1.2em;
+}
+
+.glyphicon:hover {
+  color: #428BCA;
 }

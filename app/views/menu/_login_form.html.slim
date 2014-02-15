@@ -1,0 +1,36 @@
+#login_omni
+  h4.center
+    | Log in with your social media account
+  br
+  .login_opt
+    a [href="/auth/google_oauth2" id="login_goog"]
+  .login_opt
+    a [href="/auth/facebook" id="login_fb"]
+  .login_opt
+    a [href="/auth/twitter" id="login_twit"]
+
+  hr
+
+#login_email [style="display: none"]
+  h4.center
+    | Log in with your email
+  table.form_layout
+    form [action="/email_login" method="GET" accept-charset="UTF-8" name="login"]
+      input [type="hidden" name="authenticity_token" value=""]
+      tr
+        td.field_label
+          label [for="user_email"]
+            | Email
+        td.field_input
+          input [type="text" name="user[email]" id="user_email"]
+      tr
+        td.field_label
+          label [for="user_pass"]
+            | Password
+        td.field_input
+          input [type="password" name="user[pass]" id="user_pass"]
+      tr
+        td.field_label
+        td [align="right"]
+          input [type="submit" value="Login"]
+  hr
