@@ -16,7 +16,7 @@ head
       e.preventDefault(); // no page reload
     }
 
-  body[style="background: url('/bg_tiles/full_#{@bg_label}.jpg') repeat fixed" data-hex="##{@bg_label[3..8]}"]
+  body[style="background: url('/bg_tiles/full_#{@theme[:main_bg]}.jpg') repeat fixed"]
     #overlay [style="display: none"]
     .container[id="nav_area"]
       .nav.row
@@ -31,7 +31,7 @@ head
         .col-md-2
           | &nbsp;
         .col-md-8
-          #menu_content [style="background-color: #fbfbfb"]
+          #menu_content [style="background-color: #fbfbfb" data-accent_a="#{@theme[:accent_a]}"]
             = render partial: "menu/menu_content"
         .col-md-2
           | &nbsp;

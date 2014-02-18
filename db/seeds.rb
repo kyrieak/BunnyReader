@@ -24,3 +24,25 @@
 
 
 # seed_bgs
+
+# # Themes - MedLitDark, Pattern: Vertical
+# Theme.create(main_bg: 26, accent_a: 28, accent_b: 30) # blues
+# Theme.create(main_bg: 27, accent_a: 13, accent_b: 25) # greens
+# Theme.create(main_bg: 22, accent_a: 17, accent_b: 24) # monochrom
+# Theme.create(main_bg: 18, accent_a: 29, accent_b: 21) # browns
+# Theme.create(main_bg: 20, accent_a: 16, accent_b: 23) # purples
+# Theme.create(main_bg: 15, accent_a: 14, accent_b: 19) # reds
+
+# MedLitDark color mix accent_a
+Theme.create(main_bg: 26, accent_a: 17, accent_b: 30) # blues
+Theme.create(main_bg: 27, accent_a: 29, accent_b: 25) # greens
+Theme.create(main_bg: 22, accent_a: 14, accent_b: 24) # monochrom
+Theme.create(main_bg: 18, accent_a: 14, accent_b: 21) # browns
+Theme.create(main_bg: 20, accent_a: 29, accent_b: 23) # purples
+Theme.create(main_bg: 15, accent_a: 29, accent_b: 19) # reds
+
+
+
+# Theme.create(main_bg: , accent_a: , accent_b: ) # 
+# Theme.create(main_bg: , accent_a: , accent_b: ) # 
+# Theme.create(main_bg: , accent_a: , accent_b: ) # 

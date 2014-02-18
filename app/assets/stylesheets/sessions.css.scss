@@ -26,7 +26,7 @@
   border: none;
   box-shadow: none;
   webkit-box-shadow: none;
-  background-color: white;
+  background-color: transparent;
 }
 
 #nav_area h4 {
@@ -91,10 +91,10 @@ a#login_twit {
 #overlay {
   background-color: rgba(255,255,255,0.5);
   position:fixed;
-  width:100%;
+  width:66%;
   height:100%;
   top:0;
-  left:0;
+  left:17%;
 }
 
 #nav_area {

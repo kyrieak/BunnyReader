@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $('document').ready ->
-  bg_hex = $("body").data('hex')
+  accent_a = $("#menu_content").data('accent_a')
 
-  $('#menu_content .col-md-1').css('background-color', bg_hex)
+  $('#menu_content .col-md-1').css('background', 'url(bg_tiles/full_' + accent_a + '.jpg) repeat fixed')
 
 #  theme = combination accent_label, accent2_label, background_label,

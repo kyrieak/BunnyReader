@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
     else
       @logged_in = false
     end
-    session[:current_lang] = 2
+    theme_set = Theme.find(rand(1..12))
+    @theme = Bg.set_of_three(theme_set.main_bg,
+                              theme_set.accent_a,
+                              theme_set.accent_b)
+    session[:current_lang] = 1
   end
   
 end
