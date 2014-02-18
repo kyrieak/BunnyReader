@@ -34,12 +34,20 @@
 # Theme.create(main_bg: 15, accent_a: 14, accent_b: 19) # reds
 
 # MedLitDark color mix accent_a
-Theme.create(main_bg: 26, accent_a: 17, accent_b: 30) # blues
-Theme.create(main_bg: 27, accent_a: 29, accent_b: 25) # greens
-Theme.create(main_bg: 22, accent_a: 14, accent_b: 24) # monochrom
-Theme.create(main_bg: 18, accent_a: 14, accent_b: 21) # browns
-Theme.create(main_bg: 20, accent_a: 29, accent_b: 23) # purples
-Theme.create(main_bg: 15, accent_a: 29, accent_b: 19) # reds
+# Theme.create(main_bg: 26, accent_a: 17, accent_b: 30) # blues
+# Theme.create(main_bg: 27, accent_a: 29, accent_b: 25) # greens
+# Theme.create(main_bg: 22, accent_a: 14, accent_b: 24) # monochrom
+# Theme.create(main_bg: 18, accent_a: 14, accent_b: 21) # browns
+# Theme.create(main_bg: 20, accent_a: 29, accent_b: 23) # purples
+# Theme.create(main_bg: 15, accent_a: 29, accent_b: 19) # reds
+
+# Darker themed
+Theme.create(main_bg: 28, accent_a: 24, accent_b: 30) # blue, black
+Theme.create(main_bg: 25, accent_a: 29, accent_b: 27) # greens, brown
+Theme.create(main_bg: 24, accent_a: 26, accent_b: 22) # monochrom
+Theme.create(main_bg: 21, accent_a: 14, accent_b: 18) # browns
+Theme.create(main_bg: 23, accent_a: 29, accent_b: 20) # purples
+Theme.create(main_bg: 19, accent_a: 20, accent_b: 15) # reds
 
 
 
