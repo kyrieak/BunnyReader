@@ -5,33 +5,44 @@
       = 'hi'
   - else
     .row
-      .col-md-6[style="height: 220px;"]
+      .col-md-1[style="height: 220px;"]
+        | &nbsp;
+      .col-md-4[style="height: 220px;"]
         .panel [id="login_section"]
           = render partial: '/menu/login_form'
         .panel [id="create_account" style="display: none"]
           = render partial: '/menu/create_account'
-      .col-md-6
+      .col-md-1[style="height: 220px;"]
+        | &nbsp;
+      .col-md-6[style="height: 220px;"]
         | &nbsp;
     .row
-      .col-md-6
+      .col-md-1[style="height: 60px;"]
+        | &nbsp;
+      .col-md-4[style="height: 60px;"]
         #login_option [data-option="omni"]
           h4.center.link_like
             | Login with your email
-      .col-md-6
+      .col-md-1[style="height: 60px;"]
+        | &nbsp;
+      .col-md-6[style="height: 60px;"]
         | &nbsp;
     .row
-      .col-md-6
+      .col-md-1[style="height: 60px;"]
+        | &nbsp;
+      .col-md-4[style="height: 60px;"]
         h4.center
           | You are also welcome to continue browsing as Guest
-      .col-md-6
-  .row
-    .col-md-12
+      .col-md-1[style="height: 60px;"]
+        | &nbsp;
+      .col-md-6[style="height: 60px;"]
+        | &nbsp;
   .row [id="bottom"]
-    .col-md-2[align="left"]
+    .col-md-1[align="left" style="height: 35px;"]
       = back_button 
-    .col-md-2[align="center"]
+    .col-md-4[align="center" style="height: 35px;"]
       = expand_button 
-    .col-md-2[align="right"]
+    .col-md-1[align="right" style="height: 35px;"]
       = next_button 
-    .col-md-6
+    .col-md-6[style="height: 35px;"]
       | &nbsp;

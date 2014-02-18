@@ -7,9 +7,11 @@
   margin: 0px auto
 }
 
-#login_section, #create_account {
+/*#login_section, #create_account {
   padding: 3% 8%;
-}
+}*/
+
+
 
 #create_account {
   position: absolute;
@@ -24,7 +26,7 @@
   border: none;
   box-shadow: none;
   webkit-box-shadow: none;
-  background-color: transparent;
+  background-color: white;
 }
 
 #nav_area h4 {
@@ -81,7 +83,7 @@ a#login_twit {
   padding: 0;
 }
 
-#bottom .col-md-2 {
+#bottom .col-md-1, #bottom .col-md-4 {
   height: 2em;
   border-bottom: 1px solid gray;
 }

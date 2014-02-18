@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require content
 //= require feeds
 //= require sessions
 //= require users

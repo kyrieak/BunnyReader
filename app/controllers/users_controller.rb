@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def edit
-    @bg_options = Bg.options.sort{ |opt_a, opt_b| opt_b[0] <=> opt_a[0] }
+    @bg_options = Bg.options
     @user = User.find(params[:id])
     if (@user.bg)
       @bg_label = @user.bg.label

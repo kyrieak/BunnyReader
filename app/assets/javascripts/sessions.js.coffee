@@ -9,7 +9,8 @@ $(document).ready ->
 
   panel_left = $.find("#login_section")
   panel_right = $.find("#create_account")
-  
+  panel_slide_dist = $(panel_left).outerWidth(true) * 1.1
+
   # Menu - Vertical Sliding
 
   $(".menu").click ->
@@ -18,40 +19,36 @@ $(document).ready ->
 
   # Panels - Horizontal Sliding
 
+  slide_panel = (panel, m_left, toggle_to_hide) ->
+    console.log( m_left)
+    $(panel).animate({
+        'margin-left': m_left
+      }, 400, 'swing',
+      ->
+        $(panel).toggle() if (toggle_to_hide)
+    )
+
   $(".slide").click ->
     event.preventDefault()
 
     if ($(panel_left).css('margin-left') == "0px")
       h_distance = $(panel_left).outerWidth(true) * -1.1
       $(panel_right).toggle()
-      $(panel_left).animate({
-          'margin-left': h_distance
-        }, 600, 'linear',
-        ->
-          $(panel_left).toggle()
-      )
 
-      $(panel_right).animate({
-          'margin-left': 0
-        }, 600, 'linear'
-      )
+      slide_panel(panel_left, h_distance, true)
+      slide_panel(panel_right, 0, false)
+      # $('#login_option').css('visibility', 'hidden')
     else
       h_distance = $(panel_right).outerWidth(true) * 1.1
       $(panel_left).toggle()
-      $(panel_left).animate({
-          'margin-left': 0
-        }, 600, 'linear',
-        ->
-          $(panel_right).toggle()
-      )
-
-      $(panel_right).animate({
-          'margin-left': h_distance
-        }, 600, 'linear'
-      )
-
-    $("#back").toggleClass('hide')
-    $("#next").toggleClass('hide')
+      
+      slide_panel(panel_left, 0, false)
+      slide_panel(panel_right, h_distance, true)
+      
+      # $('#login_option').css('visibility', 'show')
+    $('#login_option h4').toggleClass('v_hidden')
+    $("#back").toggleClass('v_hidden')
+    $("#next").toggleClass('v_hidden')
 
 
   # Login Options - Vertical Sliding
@@ -59,8 +56,8 @@ $(document).ready ->
   $("#login_option").click ->
     opt = $(this).data("option")
 
-    $("#login_omni").slideToggle('fast')
-    $("#login_email").slideToggle('fast')
+    $("#login_omni").slideToggle(400)
+    $("#login_email").slideToggle(400)
 
     center_link = $(this).find(".link_like")[0]
 

@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def back_button
-    content_tag :a, '', { class: 'slide hide', id: 'back' } do
+    content_tag :a, '', { class: 'slide v_hidden', id: 'back' } do
       content_tag :span, '', { class: 'glyphicon glyphicon-circle-arrow-left' }
     end
   end

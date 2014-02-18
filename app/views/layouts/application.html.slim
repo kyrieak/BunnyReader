@@ -16,7 +16,7 @@ head
       e.preventDefault(); // no page reload
     }
 
-  body[style="background: url('/bg_tiles/tile_full_#{@bg_label}.jpg') repeat fixed"]
+  body[style="background: url('/bg_tiles/full_#{@bg_label}.jpg') repeat fixed" data-hex="##{@bg_label[3..8]}"]
     #overlay [style="display: none"]
     .container[id="nav_area"]
       .nav.row
