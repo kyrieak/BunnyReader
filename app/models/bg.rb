@@ -8,9 +8,8 @@ class Bg < ActiveRecord::Base
            end.collect{ |bg| [bg.label, bg.id] }
   end
 
-  def self.set_of_three(main_id, accent_a_id, accent_b_id)
-    return { main_bg: Bg.find(main_id).label,
-              accent_a: Bg.find(accent_a_id).label,
-              accent_b: Bg.find(accent_b_id).label }
+  def self.get_pair(bg_base_id, bg_pop_id)
+    return { bg_base: Bg.find(bg_base_id).label,
+              bg_pop: Bg.find(bg_pop_id).label }
   end
 end

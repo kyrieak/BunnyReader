@@ -4,7 +4,10 @@
 
 #login_header {
   width: 100%;
-  margin: 0px auto
+  margin: 0px auto;
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 /*#login_section, #create_account {

@@ -3,18 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :logged_in?
-
+  before_action :get_theme
+          
   def logged_in?
     if session[:current_user]
       @logged_in = true
     else
       @logged_in = false
     end
-    theme_set = Theme.find(rand(13..18))
-    @theme = Bg.set_of_three(theme_set.main_bg,
-                              theme_set.accent_a,
-                              theme_set.accent_b)
     session[:current_lang] = 1
+  end
+
+  def get_theme
+    t = Theme.find(rand(13..18))
+    @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
   end
   
 end

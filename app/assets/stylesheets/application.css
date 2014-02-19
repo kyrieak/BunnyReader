@@ -57,6 +57,10 @@ input[type="submit"] {
   visibility: hidden;
 }
 
+.no_display {
+  display: none;
+}
+
 .no_padding {
   padding: 0;
 }

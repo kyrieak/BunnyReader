@@ -3,8 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $('document').ready ->
-  accent_a = $("#menu_content").data('accent_a')
+  bg_base= "bg_tiles/full_" + $("#theme").data('bg_base') + ".jpg"
+  bg_pop = "bg_tiles/full_" + $("#theme").data('bg_pop') + ".jpg"
+  color_base = "#" + $("#theme").data('color_base')
+  color_pop = "#" + $("#theme").data('color_pop')
 
-  $('#menu_content .col-md-1').css('background', 'url(bg_tiles/full_' + accent_a + '.jpg) repeat fixed')
-
-#  theme = combination accent_label, accent2_label, background_label,
+  $("body").css("background", "url(#{bg_base}) repeat fixed")
+  $("#menu_content .col-md-1").css("background", "url(#{bg_pop}) repeat fixed")
+  $("#menu_content .col-md-4").css("background-color", color_base)
+  $("h2, h3, h4").css("color", color_pop)

@@ -3,12 +3,10 @@ require 'curler'
 class FeedsController < ApplicationController
 
   def index
-    @bg_label = Bg.find(rand(1..36)).label
-    # @bg_label = Bg.find(rand(1..9)).label
     @language = session[:current_lang]
     feed_tags = {}
     Feed.all.where(language_id: @language).to_a[0..1].each { |f| feed_tags[f] = f.tags.to_a }
-    # Feed.all.where(language_id: @language).each{ |f| feed_tags[f] = f.tags.to_a }
+    
     shuffle = true
     @items = Curler.new(feed_tags).items(shuffle)
     
