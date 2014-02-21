@@ -13,9 +13,10 @@ $(document).ready ->
 
   # Menu - Vertical Sliding
 
-  $(".menu").click ->
+  $(".menu_toggler").click ->
+    console.log(this)
     $("#overlay").toggle()
-    $("#menu").slideToggle(400)
+    $("#menu_content").slideToggle(400)
 
   # Panels - Horizontal Sliding
 

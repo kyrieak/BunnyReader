@@ -2,67 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#menu_header {
-  position: fixed;
-  top: 0;
-  left: 17%;
-  width: 66%;
-  height: 2.3em;
-  line-height: 2.3em;
-  text-align: center;
-  z-index: 100;
-  opacity: 0.9;
-}
-
-#menu_content {
-  position: fixed;
-  top: 2.3em;
-  left: 17%;
-  width: 66%;
-  z-index: 100;
-}
-
-#overlay {
-  position: fixed;
-  top: 2.3em;
-  left: 17%;
-  width: 66%;
+#login_header {
+  width: 100%;
+  margin: 0px auto;
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
   opacity: 0.5;
-  moz-opacity: 0.5;
-}
-
-.side_panel {
-  position: fixed;
-  top: 0;
-  width: 17%;
-  height: 100%;
-  box-shadow: inset -10px 0px 20px -10px #000;
-}
-
-.inner_shade_l {
-  box-shadow: inset -10px 0px 20px -10px #000;
-}
-
-.inner_shade_r {
-  box-shadow: inset 10px 0px 20px -10px #000;
-}
-
-#menu_bottom {
-  position: relative;
-  border-bottom: 1px solid #CCCCCC;
-}
-
-#menu_bottom .slide_arrow {
-  position: absolute;
-  bottom: 0;
-}
-
-#page_content {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 17%;
-  width: 66%;
 }
 
 #create_account {

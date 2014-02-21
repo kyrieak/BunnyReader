@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_theme
-    t = Theme.find(rand(13..18))
+    t = Theme.find(2)
     @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
   end
   

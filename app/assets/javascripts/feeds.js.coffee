@@ -8,7 +8,7 @@ $('document').ready ->
   color_base = "#" + $("#theme").data('color_base')
   color_pop = "#" + $("#theme").data('color_pop')
 
-  $("body").css("background", "url(#{bg_base}) repeat fixed")
+  $(".side_panel").css("background", "url(#{bg_base}) repeat fixed")
   $("#menu_content .col-md-1").css("background", "url(#{bg_pop}) repeat fixed")
   $("#menu_content .col-md-4").css("background-color", color_base)
   $("h2, h3, h4").css("color", color_pop)
