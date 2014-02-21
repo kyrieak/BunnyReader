@@ -15,7 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   def get_theme
-    t = Theme.find(2)
+    if (!session[:thid] || session[:thid] > 17)
+      session[:thid] = 1
+    else
+      session[:thid] += 1
+    end
+    t = Theme.find(session[:thid])
+    @thid = session[:thid]
     @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
   end
   

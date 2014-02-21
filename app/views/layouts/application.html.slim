@@ -3,10 +3,9 @@ html
 head
   title BunnyReader
   meta[name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"]
-  link[rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"]
+  link [href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"]
   = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
   script[type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"]
-  script[type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"]
   = javascript_include_tag "application", "data-turbolinks-track" => true   
   = csrf_meta_tags
   javascript:
@@ -27,7 +26,11 @@ head
       = flash[:notice]
     
     .side_panel.inner_shade_l [ style="left: 0"]
+      = @thid
     .side_panel.inner_shade_r [ style="right: 0"]
+      iframe [src="http://free.timeanddate.com/clock/i4192f8f/n224/szw160/szh160/hoc#{@theme[:color_pop]}/hbw0/hfc#{@theme[:color_base]}/cf100/hgr0/hwc000/fac#{@theme[:color_pop]}/fnu2/fdi76/mqc#{@theme[:color_pop]}/mqs4/mql18/mqw4/mqd60/mhc#{@theme[:color_pop]}/mhs4/mhl5/mhw4/mhd62/mmv0/hwm1/hhc#{@theme[:color_pop]}/hhs1/hhb10/hmc#{@theme[:color_pop]}/hms1/hmb10/hsv0" frameborder="0" width="162" height="162" style="opacity:0.8"]
+
+      = render partial: "side_panel_r"
     #page_content [style="background-color: #F8F8F8"]
       = yield
     #overlay.no_display [style="background-color: ##{@theme[:color_base]}"]

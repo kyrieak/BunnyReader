@@ -17,7 +17,7 @@ gem 'omniauth-twitter'
 
 gem 'typhoeus'
 gem 'nokogiri', '>=1.6.0'
-
+gem "bootstrap-glyphicons", "~> 0.0.1"
 gem 'slim'
 
 # Use SCSS for stylesheets

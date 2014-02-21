@@ -4,7 +4,8 @@ div
     .row
       = 'hi'
   - else
-    div [style="height: 220px;"]
+    .mini_side_panel
+    div [style="height: 220px; margin: 0 10%"]
       .panel [id="login_section"]
         = render partial: '/menu/login_form'
       .panel [id="create_account" style="display: none"]
@@ -16,6 +17,7 @@ div
     div [style="height: 60px;"]
       h4.center
         | You are also welcome to continue browsing as Guest
+    .mini_side_panel [style="right: 0"]
   #menu_bottom
     .slide_arrow [align="left" style="left: 0"]
       = back_button 
