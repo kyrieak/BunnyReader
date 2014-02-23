@@ -14,15 +14,29 @@ class ApplicationController < ActionController::Base
     session[:current_lang] = 1
   end
 
-  def get_theme
-    if (!session[:thid] || session[:thid] > 17)
-      session[:thid] = 1
+  def get_theme   
+    if (!session[:th_index] || session[:th_index] > 16)
+      session[:th_index] = 0
     else
-      session[:thid] += 1
+      session[:th_index] += 1
     end
-    t = Theme.find(session[:thid])
-    @thid = session[:thid]
+
+    if (!session[:thid_order])
+      thids = []
+      bgs = Bg.all.to_a.sort_by{ |b| b.hue }.collect{ |bg| bg.id }
+      themes = Theme.all.to_a.sort_by{ |t| bgs.find_index(t.bg_base) }.collect{ |th| th.id }
+      themes = themes.join(",")
+      session[:thid_order] = themes
+    end
+    
+    order = session[:thid_order].split(",").collect{ |num| num.to_i }
+    thid = order[session[:th_index]]
+    t = Theme.find(thid)
+    @thid = thid
     @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
+    # @thid = 5
+    # t = Theme.find(@thid)
+    # @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
   end
   
 end

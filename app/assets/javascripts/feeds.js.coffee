@@ -15,6 +15,13 @@ $('document').ready ->
 
   $(".side_panel").css("background", "url(#{bg_base}) repeat fixed")
   $(".mini_side_panel").css("background", "url(#{bg_pop}) repeat fixed")
+  $(".shelf").css("background-color", color_pop)
   $("#menu_header").css("color", color_pop)
-  $("#menu_content .col-md-1").css("background", "url(#{bg_pop}) repeat fixed")
-  $("#menu_content .col-md-4").css("background-color", color_base)
+
+  for box in $.find('.photobox')
+    console.log(box)
+    mleft = Math.floor(Math.random() * (6 - 4 + 1) + 4)
+    mleft = '' + mleft
+    console.log(mleft)
+    img = $(box).find("img")[0]
+    $(img).css("margin-left", mleft + "%")

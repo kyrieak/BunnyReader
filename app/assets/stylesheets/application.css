@@ -10,6 +10,7 @@
  
  *= require sessions
  *= require feeds
+ *= require users
  *= require_self
  */
 
