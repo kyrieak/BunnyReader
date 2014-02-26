@@ -18,10 +18,10 @@ $('document').ready ->
   $(".shelf").css("background-color", color_pop)
   $("#menu_header").css("color", color_pop)
 
-  for box in $.find('.photobox')
-    console.log(box)
-    mleft = Math.floor(Math.random() * (6 - 4 + 1) + 4)
-    mleft = '' + mleft
-    console.log(mleft)
-    img = $(box).find("img")[0]
-    $(img).css("margin-left", mleft + "%")
+  # for box in $.find('.photobox')
+  #   console.log(box)
+  #   mleft = Math.floor(Math.random() * (6 - 4 + 1) + 4)
+  #   mleft = '' + mleft
+  #   console.log(mleft)
+  #   img = $(box).find("img")[0]
+  #   $(img).css("margin-left", mleft + "%")
