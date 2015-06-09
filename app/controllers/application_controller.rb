@@ -15,17 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def get_theme
-    order = [1, 3, 4, 5, 6, 9, 13, 16, 17, 18, 21, 25, 27]
+    @thid = 1 # default theme
 
-    if (!session[:th_index] || session[:th_index] > 12)
-      session[:th_index] = 0
-    end
-    
-    thid = order[session[:th_index]]
-    t = Theme.find(thid)
-    @thid = thid
+    t = Theme.find(@thid)
     @theme = t.theme_set(Bg.find(t.bg_base).label, Bg.find(t.bg_pop).label)
-    session[:th_index] += 1
   end
   
 end

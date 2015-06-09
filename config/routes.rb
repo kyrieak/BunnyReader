@@ -12,7 +12,7 @@ BunnyReader::Application.routes.draw do
   post "/user_account" => "users#user_account"
   post "/logout" => "sessions#destroy"
 
-  get "/get_defaults" => "sessions#get_defaults"
+  # get "/get_defaults" => "sessions#get_defaults"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

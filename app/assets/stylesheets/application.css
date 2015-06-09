@@ -24,12 +24,16 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  display: inline-block;
 }
 
 p {
   font-size: 1em;
   line-height: 1.7em;
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
 }
 
 table.form_layout {
