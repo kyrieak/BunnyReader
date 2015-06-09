@@ -6,15 +6,16 @@
 
 
 $(document).ready ->
-
-  panel_left = $.find("#login_section")
-  panel_right = $.find("#create_account")
+  panels = $("#menu_content").find(".panel")
+  panel_left = panels[0]
+  panel_right = panels[1]
+  console.log(panel_left)
+  console.log(panel_right)
   panel_slide_dist = $(panel_left).outerWidth(true) * 1.1
 
   # Menu - Vertical Sliding
 
-  $(".menu_toggler").click ->
-    console.log(this)
+  $(".m_tog").click ->
     $("#overlay").toggle()
     $("#menu_content").slideToggle(400)
 

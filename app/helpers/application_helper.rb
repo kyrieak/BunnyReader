@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def expand_button
-    content_tag :a, { class: 'menu glyphicon icon_bar_outer' } do
+    content_tag :a, { class: 'glyphicon icon_bar_outer' } do
       concat(content_tag :span, '', class: 'icon-bar')
       concat(content_tag :span, '', class: 'icon-bar')
       concat(content_tag :span, '', class: 'icon-bar')

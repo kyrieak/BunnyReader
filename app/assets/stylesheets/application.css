@@ -63,7 +63,7 @@ input[type="submit"] {
   display: none;
 }
 
-.no_padding {
+.no_pad {
   padding: 0;
 }
 
@@ -116,4 +116,49 @@ hr {
 
 #menu_content .col-md-6 {
   padding: 0 8%;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.ta_left {
+  text-align: left;
+}
+
+.ta_center {
+  text-align: center;
+}
+
+.ta_right {
+  text-align: right;
+}
+
+.glyph_box {
+  width: 26px;
+  margin: 0 auto;
+}
+
+.icon_bar_outer {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  height: 0.75em;
+}
+
+.icon-bar {
+  display: block;
+  background-color: #AAAAAA;
+  width: 22px;
+  height: 2px;
+  margin: 2px;
+  border-radius: 1px;
+}
+
+.icon_bar_outer:hover .icon-bar {
+  background-color: #428BCA;
 }

@@ -17,21 +17,26 @@ head
 
   body
     #theme.no_display [data-bg_base="#{@theme[:bg_base]}"
-                       data-bg_pop="#{@theme[:bg_pop]}"
-                       data-color_base="#{@theme[:color_base]}"
-                       data-color_pop="#{@theme[:color_pop]}"]
-    #menu_header.menu_toggler [style="background-color: ##{@theme[:color_base]}"]
+                       data-bg_pop= "#{@theme[:bg_pop]}"
+                       data-color_a="#{@theme[:color_a]}"
+                       data-color_b="#{@theme[:color_b]}"]
+    
+    #menu_header.m_tog.bg_color_a.color_b
       | Login
     .notice
       = flash[:notice]
     
-    .side_panel.inner_shade_l [style="left: 0"]
+    .side_panel.bg_base.left
       = @thid
-      = render partial: "side_panel_l"
-    .side_panel.inner_shade_r [style="right: 0"]
-      = render partial: "side_panel_r"
-    #page_content [style="background-color: #F8F8F8"]
+      = render partial: "layouts/side_panel_l"
+    
+    .side_panel.bg_base.right
+      = render partial: "layouts/side_panel_r"
+    
+    #page_content.bg_color_c
       = yield
-    #overlay.no_display [style="background-color: ##{@theme[:color_base]}"]
-    #menu_content.no_display [data-bg_pop="#{@theme[:bg_pop]}" style="background-color: #f8f8f8"]
+    
+    #overlay.no_display.bg_color_a
+
+    #menu_content.no_display.bg_color_c
       = render partial: "menu/menu_content"

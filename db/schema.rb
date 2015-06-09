@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218075925) do
+ActiveRecord::Schema.define(version: 20140226211926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,8 +68,10 @@ ActiveRecord::Schema.define(version: 20140218075925) do
   create_table "themes", force: true do |t|
     t.integer "bg_base"
     t.integer "bg_pop"
-    t.string  "color_base"
-    t.string  "color_pop"
+    t.string  "color_a"
+    t.string  "color_b"
+    t.string  "color_c"
+    t.string  "color_d"
   end
 
   create_table "users", force: true do |t|

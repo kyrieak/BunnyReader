@@ -2,25 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#menu_header {
+#menu_header,
+#menu_content {
   position: fixed;
-  top: 0;
   left: 17%;
   width: 66%;
+  z-index: 100;
+}
+
+#menu_header {
+  top: 0;
   height: 2.3em;
   line-height: 2.3em;
   border-bottom: 1px solid #CCCCCC;
   text-align: center;
-  z-index: 100;
   opacity: 0.8;
 }
 
 #menu_content {
-  position: fixed;
   top: 2.3em;
-  left: 17%;
-  width: 66%;
-  z-index: 100;
 }
 
 #overlay {
@@ -42,30 +42,90 @@
   box-shadow: inset -10px 0px 20px -10px #000;
 }
 
-.mini_side_panel {
-  position: absolute;
-  top: 0;
-  width: 6%;
-  height: 100%;
-}
-
-.inner_shade_l {
+.side_panel.left {
   box-shadow: inset -10px 0px 20px -10px #000;
 }
 
-.inner_shade_r {
+.side_panel.right {
   box-shadow: inset 10px 0px 20px -10px #000;
 }
 
-#menu_bottom {
-  position: relative;
-  border-bottom: 1px solid #CCCCCC;
-}
+#menu_content {
+  
+  .side_panel {
+    position: absolute;
+    top: 0;
+    width: 6%;
+    height: 100%;
+  }
 
-#menu_bottom .slide_arrow {
-  position: absolute;
-  bottom: 0;
+  .row_top {
+    height: 220px;
+    margin: 0 10%;
+  }
+
+  .row_inner {
+    height: 60px;
+    margin: 0 10%;
+  }
+
+  .row_bottom {
+    position: relative;
+    border-bottom: 1px solid #CCCCCC;
+  }
+
+  .slide_arrow {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .panel {
+    display: block;
+    width: 100%;
+    height: 220px;
+/*    border: none;
+    box-shadow: none;
+    webkit-box-shadow: none;
+    background-color: transparent;*/
+  }
+
+  .panel.no_display {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 100%;
+  }
+
+  a#login_goog {
+    margin: 10px 0;
+    height: 40px;
+    width: 107px;
+    background: image-url("login/google.png");
+  }
+
+  a#login_fb {
+    height: 60px;
+    width: 60px;
+    background: image-url("login/fb.png");
+  }
+
+  a#login_twit {
+    height: 60px;
+    width: 73.5px;
+    background: image-url("login/twit.png");
+  }
+
+  a#login_goog,
+  a#login_fb,
+  a#login_twit {
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
 }
+// end of #menu_content
 
 #page_content {
   display: block;
@@ -73,22 +133,6 @@
   top: 0;
   left: 17%;
   width: 66%;
-}
-
-#create_account {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 100%;
-}
-#menu_content .panel {
-  display: block;
-  width: 100%;
-  height: 220px;
-  border: none;
-  box-shadow: none;
-  webkit-box-shadow: none;
-  background-color: transparent;
 }
 
 #nav_area h4 {
@@ -104,52 +148,11 @@
   text-align: center;
 }
 
-a#login_goog {
-  margin: 10px 0;
-  height: 40px;
-  width: 107px;
-  background: image-url("login/google.png");
-}
-
-a#login_fb {
-  height: 60px;
-  width: 60px;
-  background: image-url("login/fb.png");
-}
-
-a#login_twit {
-  height: 60px;
-  width: 73.5px;
-  background: image-url("login/twit.png");
-}
-
-a#login_goog,
-a#login_fb,
-a#login_twit {
-  display: inline-block;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
 #menu .container {
   width: 200%;
   padding: 0;
   max-width: none;
 }
-
-#menu .row {
-  margin: 0;
-}
-
-.col-md-8 {
-  padding: 0;
-}
-
-#bottom .col-md-1, #bottom .col-md-4 {
-  height: 2em;
-  border-bottom: 1px solid gray;
-}
-
 
 #nav_area {
   position: fixed;
@@ -158,22 +161,4 @@ a#login_twit {
   z-index:500;
 }
 
-.icon_bar_outer {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  height: 0.75em;
-}
 
-.icon-bar {
-  display: block;
-  background-color: #AAAAAA;
-  width: 22px;
-  height: 2px;
-  margin: 2px;
-  border-radius: 1px;
-}
-
-.icon_bar_outer:hover .icon-bar {
-  background-color: #428BCA;
-}

@@ -1,27 +1,28 @@
-div
-  - @logged_in = false
-  - if logged_in? 
-    .row
-      = 'hi'
-  - else
-    .mini_side_panel
-    div [style="height: 220px; margin: 0 10%"]
-      .panel [id="login_section"]
-        = render partial: '/menu/login_form'
-      .panel [id="create_account" style="display: none"]
-        = render partial: '/menu/create_account'
-    div [style="height: 60px;"]
-      #login_option [data-option="omni"]
-        h4.center.link_like
-          | Login with your email
-    div [style="height: 60px;"]
-      h4.center
-        | You are also welcome to continue browsing as Guest
-    .mini_side_panel [style="right: 0"]
-  #menu_bottom
-    .slide_arrow [align="left" style="left: 0"]
-      = back_button 
-    .menu_toggler [align="center" style="width: 26px; margin: 0 auto"]
-      = expand_button 
-    .slide_arrow [align="right" style="right: 0"]
-      = next_button 
+.side_panel.left.bg_pop
+
+.row_top
+  .panel
+    = render partial: '/menu/login_form'
+
+  .panel.no_display
+    = render partial: '/menu/create_account'
+
+.row_inner.ta_center
+  h4.link_like
+    | Login with your email
+
+.row_inner.ta_center
+  h4
+    | You are also welcome to continue browsing as Guest
+
+.side_panel.right.bg_pop
+
+.row_bottom
+  .slide_arrow.left.ta_left
+    = back_button
+  
+  .glyph_box.m_tog.ta_center
+    = expand_button
+
+  .slide_arrow.right.ta_right
+    = next_button

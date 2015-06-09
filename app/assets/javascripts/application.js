@@ -13,8 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require feeds
+//= require themes
 //= require sessions
-//= require users
-//= require resources
 //= require_self
+
+$(document).ready(function() {
+  $("a.ext").on("click", function(e) {
+    e.preventDefault();
+    window.open(this.href, "_tab");
+  });
+});
